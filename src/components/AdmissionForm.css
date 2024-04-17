@@ -1,0 +1,12 @@
+.form {
+    color: white;
+    padding-left: 0.2rem;
+
+}
+
+.label{
+    display: flex;
+    justify-content: flex-start;
+    color: darkgrey;
+
+}
