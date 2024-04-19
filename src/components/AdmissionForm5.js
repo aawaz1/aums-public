@@ -54,6 +54,8 @@ const AdmissionForm5 = () => {
 
                     <h4 style={{ color: "Darkgray", fontSize: "1rem" }} className='form'>If Yes Please Indicate Details</h4>
                     <TextField
+                       multiline
+                       rows={4}
                         size={"small"}
                         color='primary'
                         // id="outlined-start-adornment"
@@ -64,7 +66,7 @@ const AdmissionForm5 = () => {
                             borderColor: "lightgray",
                             '& .MuiOutlinedInput-root': {
                                 '& fieldset': {
-                                    height: "8rem",
+                                    // height: "8rem",
                                     borderColor: 'none',
                                     borderRadius: "12px"// Specify your desired border color here
                                 },

@@ -7,6 +7,7 @@ import AdmissionForm3 from './components/AdmissionForm3';
 import AdmissionForm4 from './components/AdmissionForm4';
 import Form from './components/Form';
 import Download from './components/Download';
+import Document from './components/Document';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/from1' element={<AdmissionForm4/>}/>
         <Route path='/details' element={<Form/>}/>
         <Route path='/download' element={<Download/>}/>
+        <Route path='/document' element={<Document/>}/>
       </Routes>
      
      

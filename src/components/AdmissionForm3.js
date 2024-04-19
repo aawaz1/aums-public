@@ -4,15 +4,13 @@ import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 
 const AdmissionForm3 = () => {
-    const [check1, setChecked1] = useState(false);
-    const [check2, setChecked2] = useState(false);
+    const [check, setChecked] = useState(false);
 
-    const handleChange1 = (event) => {
-        setChecked1(event.target.checked);
+
+    const handleChange = (event) => {
+        setChecked(!check);
     };
-    const handleChange2 = (event) => {
-        setChecked2(event.target.checked);
-    };
+
     const CustomCheckboxYes = styled(Checkbox)(({ theme }) => ({
         color: '#B70042', // Set the color of the checkbox itself
         '&.Mui-checked': {
@@ -33,18 +31,20 @@ const AdmissionForm3 = () => {
             <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042' }}>
                 <h4 className='form'>Health Information</h4>
             </Box>
-            <Box sx={{ padding: "1rem", fontSize: "1.2rem", fontWeight: "1rem" }}>
+            <Box sx={{
+                padding: "1rem", fontSize: "1.2rem", fontWeight: "600", color: "#606060"
+            }}>
                 <p>
                     Do You Suffer From any Physical , Learning, Mental Disabilities that may impare your performance at the University ? If Yes Please Provide Describe and Provide Medical Report Stamped From A Recognized Official Institution.
                 </p>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                     <FormControlLabel
-                        control={< CustomCheckboxYes Checkbox checked={check1} onChange={handleChange1} />}
+                        control={< CustomCheckboxYes Checkbox checked={check} onChange={handleChange} />}
                         label="Yes"
                     />
                     <FormControlLabel
 
-                        control={< CustomCheckboxNo Checkbox checked={check2} onChange={handleChange2} />}
+                        control={< CustomCheckboxNo Checkbox checked={!check} onChange={handleChange} />}
                         label="No"
                     />
                 </Box>
