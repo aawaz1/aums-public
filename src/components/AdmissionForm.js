@@ -305,6 +305,8 @@ const AdmissionForm = ({ formData, handleChange }) => {
                                         required={true}
                                         size={"small"}
                                         color='primary'
+                                        value={formData.emailOne.value}
+                                        handleChange={(e) => handleChange(e, "emailOne")}
 
                                         // id="outlined-start-adornment"
                                         // sx={{ m: 1, width: '100%' }}
@@ -339,6 +341,8 @@ const AdmissionForm = ({ formData, handleChange }) => {
                                     <TextField
                                         size={"small"}
                                         color='primary'
+                                        value={formData.emailTwo.value}
+                                        handleChange={(e) => handleChange(e, "emailTwo")}
                                         // id="outlined-start-adornment"
                                         // sx={{ m: 1, width: '100%' }}
                                         sx={{
