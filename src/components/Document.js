@@ -15,7 +15,7 @@ import Input from './Input';
 import Input2 from './Input2';
 import Download from './Download';
 
-const Document = () => {
+const Document = ({ formData, handleChange }) => {
     const [check1, setChecked1] = useState(false);
     const [check2, setChecked2] = useState(false);
     function createData(
@@ -61,7 +61,7 @@ const Document = () => {
                 <h4 className='form'>Documents</h4>
             </Box>
 
-            <Box sx={{ padding: "0.5rem", color  :"#606060" }}>
+            <Box sx={{ padding: "0.5rem", color: "#606060" }}>
                 <Box>
                     <h4>Upload the following documents PDF only  </h4>
                 </Box>
@@ -72,7 +72,7 @@ const Document = () => {
                             <TableRow>
                                 <TableCell> 1</TableCell>
                                 <TableCell sx={{ fontWeight: "700" }} align="left">Passport Photograph Attached </TableCell>
-                                <TableCell align="right"><Download /></TableCell>
+                                <TableCell align="right"><Download formData={formData} handleChange={handleChange} value={'photograph'}/></TableCell>
 
 
                             </TableRow>
@@ -81,7 +81,7 @@ const Document = () => {
                             <TableRow>
                                 <TableCell> 2</TableCell>
                                 <TableCell sx={{ fontWeight: "700" }} align="left">Official transcript (signed) with attestation from Ministry of Education in Kuwait for non-governmental schools.</TableCell>
-                                <TableCell align="right"><Download /></TableCell>
+                                <TableCell align="right"><Download formData={formData} handleChange={handleChange} value={'transcript'} /></TableCell>
 
 
                             </TableRow>
@@ -90,7 +90,7 @@ const Document = () => {
                             <TableRow>
                                 <TableCell> 3</TableCell>
                                 <TableCell sx={{ fontWeight: "700" }} align="left">One Copy of TOEFL or IELTS score.</TableCell>
-                                <TableCell align="right"><Download /></TableCell>
+                                <TableCell align="right"><Download formData={formData} handleChange={handleChange} value={'toefl'} /></TableCell>
 
 
                             </TableRow>
@@ -100,7 +100,7 @@ const Document = () => {
                                 <TableCell> 4</TableCell>
                                 <TableCell sx={{ fontWeight: "700" }} align="left">High school original Certificate with attestation from Ministry of Education in Kuwait.
                                 </TableCell>
-                                <TableCell align="right"><Download /></TableCell>
+                                <TableCell align="right"><Download  formData={formData} handleChange={handleChange} value={'highschool'} /></TableCell>
 
 
                             </TableRow>
@@ -116,8 +116,8 @@ const Document = () => {
                                 </TableCell>
                                 <TableCell align="left">
                                     <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-                                        <Download />
-                                        <Download /></div></TableCell>
+                                        <Download formData={formData} handleChange={handleChange} value={'civilid'}/>
+                                        <Download formData={formData} handleChange={handleChange} value={'passport'} /></div></TableCell>
 
 
                             </TableRow>
@@ -126,7 +126,7 @@ const Document = () => {
                             <TableRow>
                                 <TableCell> 6</TableCell>
                                 <TableCell sx={{ fontWeight: "700" }} align="left">Applicant of 21 years of age or above and been discontinued from studying for more than one academic year, must submit a recent valid clear criminal record (not exceeding 3 months) upon application.</TableCell>
-                                <TableCell align="right"><Download /></TableCell>
+                                <TableCell align="right"><Download formData={formData} handleChange={handleChange} value={'record'}/></TableCell>
 
 
                             </TableRow>
@@ -135,7 +135,7 @@ const Document = () => {
                             <TableRow>
                                 <TableCell> 7</TableCell>
                                 <TableCell sx={{ fontWeight: "700" }} align="left">Certificate of Good Conduct.</TableCell>
-                                <TableCell align="right"><Download /></TableCell>
+                                <TableCell align="right"><Download formData={formData} handleChange={handleChange} value={'goodconduct'}/></TableCell>
 
 
                             </TableRow>
