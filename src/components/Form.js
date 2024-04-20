@@ -28,7 +28,7 @@ import './phoneInput.css'
 import PhoneInput from 'react-phone-input-2';
 
 const Form = ({ formData, handleChange }) => {
-   
+
     const CustomCheckboxYes = styled(Checkbox)(({ theme }) => ({
         color: '#B70042', // Set the color of the checkbox itself
         '&.Mui-checked': {
@@ -62,27 +62,27 @@ const Form = ({ formData, handleChange }) => {
                     <Grid container spacing={1}>
                         <Grid item container spacing={1}>
                             <Grid xs={12} md={6} item>
-                                <Input label={"Name"} value={formData.emergency[0].name.value} handleChange={(e) => handleChange(e, "emergency", "0", "name")} />
+                                <Input isRequired={true} label={"Name"} value={formData.emergency[0].name.value} handleChange={(e) => handleChange(e, "emergency", "0", "name")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input label={"Name"} value={formData.emergency[1].name.value} handleChange={(e) => handleChange(e, "emergency", "1", "name")} />
+                                <Input isRequired={true} label={"Name"} value={formData.emergency[1].name.value} handleChange={(e) => handleChange(e, "emergency", "1", "name")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input label={"Relationship"} value={formData.emergency[0].relationship.value} handleChange={(e) => handleChange(e, "emergency", "0", "relationship")} />
+                                <Input isRequired={true} label={"Relationship"} value={formData.emergency[0].relationship.value} handleChange={(e) => handleChange(e, "emergency", "0", "relationship")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input label={"Relationship"} value={formData.emergency[1].relationship.value} handleChange={(e) => handleChange(e, "emergency", "1", "relationship")} />
+                                <Input isRequired={true} label={"Relationship"} value={formData.emergency[1].relationship.value} handleChange={(e) => handleChange(e, "emergency", "1", "relationship")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input label={"Civil ID Number"} value={formData.emergency[0].civilId.value} handleChange={(e) => handleChange(e, "emergency", "0", "civilId")} />
+                                <Input isRequired={true} label={"Civil ID Number"} value={formData.emergency[0].civilId.value} handleChange={(e) => handleChange(e, "emergency", "0", "civilId")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input label={"Civil ID Number"} value={formData.emergency[1].civilId.value} handleChange={(e) => handleChange(e, "emergency", "1", "civilId")} />
+                                <Input isRequired={true} label={"Civil ID Number"} value={formData.emergency[1].civilId.value} handleChange={(e) => handleChange(e, "emergency", "1", "civilId")} />
 
                             </Grid>
 
@@ -165,7 +165,7 @@ const Form = ({ formData, handleChange }) => {
                                     <TableCell sx={{ fontWeight: 700 }}> Parents </TableCell>
                                     <TableCell align="right"> </TableCell>
                                     <TableCell align="right">
-                                        <Input/>
+                                        <Input />
                                     </TableCell>
 
 
@@ -195,10 +195,10 @@ const Form = ({ formData, handleChange }) => {
                     <Box ><h4>Declaration & Acknowledgment </h4></Box>
                     <Box sx={{ display: 'flex' }}>
                         <div style={{ border: "2px solid redx" }}><FormControlLabel
-                            control={< CustomCheckboxYes Checkbox  checked={formData.isDeclared.value === true} onChange={(e) => {
+                            control={< CustomCheckboxYes required={true} Checkbox checked={formData.isDeclared.value === true} onChange={(e) => {
                                 handleChange({ target: { value: e.target.checked } }, "isDeclared")
-    
-                            }}/>}
+
+                            }} />}
 
                         /></div>
                         <div>I The Undersigned hereby certify that the above Information is complete , accurate and correct . I authorize AUMS and related officials to verify alL statements contains therein and give the University the absolute discreation to use these documents whenever and whatever it seems fit in the connection with the tasks

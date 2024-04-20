@@ -58,6 +58,8 @@ const AdmissionForm3 = ({ formData, handleChange }) => {
 
                     <h4 style={{ color: "Darkgray", fontSize: "1rem" }} className='form'>If Yes Please Indicate Details</h4>
                     <TextField
+                        disabled={!formData.isHealthRecord.value}
+                        required={formData.isHealthRecord.value}
                         size={"small"}
                         value={formData.healthNote.value}
                         onChange={(e) => handleChange(e, "healthNote")}

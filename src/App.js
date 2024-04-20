@@ -15,7 +15,7 @@ import { Box, Button } from '@mui/material';
 function App() {
 
   const steps = ["PERSONAL", "FAMILY", "HEALTH", "ACADEMIC", "EMERGENCY", "DOCUMENT"];
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(4);
 
   const initFormData = {
     firstName: { value: "", error: "" },
@@ -45,16 +45,16 @@ function App() {
     "sponsorship": {
       "parents": { value: false, error: "" },
     },
-    isDeclared : { value: false, error: "" },
-    document : {
-      photograph : {value : null , error : ""},
-      transcript : {value : null , error : ""},
-      toefl: {value : null , error : ""},
-      highschool : {value : null , error : ""},
-      civilid : {value : null , error : ""},
-      passport : {value : null , error : ""},
-      record : {value : null , error : ""},
-      goodconduct : {value : null , error : ""}
+    isDeclared: { value: false, error: "" },
+    document: {
+      photograph: { value: null, error: "" },
+      transcript: { value: null, error: "" },
+      toefl: { value: null, error: "" },
+      highschool: { value: null, error: "" },
+      civilid: { value: null, error: "" },
+      passport: { value: null, error: "" },
+      record: { value: null, error: "" },
+      goodconduct: { value: null, error: "" }
 
     },
     "archivements": { value: [{ value: "", error: "" }] },
@@ -93,13 +93,13 @@ function App() {
     "emergency": [
       {
         "name": { value: "", error: "" },
-        "contact": { value: "", error: "" ,  phoneCode: { value: "" } },
+        "contact": { value: "", error: "", phoneCode: { value: "" } },
         "relationship": { value: "", error: "" },
         "civilId": { value: "", error: "" },
       },
       {
         "name": { value: "", error: "" },
-        "contact":{ value: "", error: "" , phoneCode: { value: "" } },
+        "contact": { value: "", error: "", phoneCode: { value: "" } },
         "relationship": { value: "", error: "" },
         "civilId": { value: "", error: "" },
       }
@@ -166,7 +166,7 @@ function App() {
     ]
   }
   const [formData, setFormData] = useState(initFormData);
-  const handleChange = (e, firstKey, secondKey, thirdKey , forthKey) => {
+  const handleChange = (e, firstKey, secondKey, thirdKey, forthKey) => {
     if (e.persist)
       e.persist();
 
@@ -228,7 +228,7 @@ function App() {
         <Box style={{ height: "4rem" }}></Box>
         <Box className="submitContainer">
           <Button className={"cancelButton"} onClick={handleCancel}>Cancel</Button>
-          <Button className={"submitButton"} type="submit">Next</Button>
+          <Button disabled={(step === 2 && formData.isHealthRecord.value === null)} className={"submitButton"} type="submit">Next</Button>
         </Box>
 
       </form>

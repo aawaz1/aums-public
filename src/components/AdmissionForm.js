@@ -51,7 +51,7 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.gender.value} handleChange={(e) => handleChange(e, "gender")} label={"Gender"}
+                                <Input isRequired={true} value={formData.gender.value} handleChange={(e) => handleChange(e, "gender")} label={"Gender"}
                                     option={formData.gender.option}
                                     select={true}
                                 />
@@ -59,7 +59,7 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.maritalStatus.value} handleChange={(e) => handleChange(e, "maritalStatus")} label={"Martial Status"}
+                                <Input isRequired={true} value={formData.maritalStatus.value} handleChange={(e) => handleChange(e, "maritalStatus")} label={"Martial Status"}
                                     option={formData.maritalStatus.option}
                                     select={true}
                                 />
@@ -67,68 +67,60 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.civilId.value} handleChange={(e) => handleChange(e, "civilId")} label={"Civil ID Number"} />
+                                <Input isRequired={true} value={formData.civilId.value} handleChange={(e) => handleChange(e, "civilId")} label={"Civil ID Number"} />
 
                             </Grid>
 
-
-
-
-
                         </Grid>
                         <Grid item container spacing={1}>
-
-
                         </Grid>
 
                     </Grid>
                 </CommonAccordion>
                 <CommonAccordion defaultExpanded={true} title={"Address Details"}>
-
                     <Grid container spacing={1}>
                         <Grid item container spacing={4}>
                             <Grid xs={12} md={12} item>
-                                <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "address", "home")} label={"Home Address"} />
+                                <Input isRequired={true} value={formData.address.home.value} handleChange={(e) => handleChange(e, "address", "home")} label={"Home Address"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.block.value} handleChange={(e) => handleChange(e, "address", "block")} label={"Block"} />
+                                <Input isRequired={true} value={formData.address.block.value} handleChange={(e) => handleChange(e, "address", "block")} label={"Block"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.street.value} handleChange={(e) => handleChange(e, "address", "street")} label={"Street "} />
+                                <Input isRequired={true} value={formData.address.street.value} handleChange={(e) => handleChange(e, "address", "street")} label={"Street "} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.appartment.value} handleChange={(e) => handleChange(e, "address", "area")} label={"House Apartment"} />
+                                <Input isRequired={true} value={formData.address.appartment.value} handleChange={(e) => handleChange(e, "address", "appartment")} label={"House Apartment"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.area.value} handleChange={(e) => handleChange(e, "address", "area")} label={"Area"} />
+                                <Input isRequired={true} value={formData.address.area.value} handleChange={(e) => handleChange(e, "address", "area")} label={"Area"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.jaddah.value} handleChange={(e) => handleChange(e, "address", "area")} label={"Jaddah"} />
+                                <Input value={formData.address.jaddah.value} handleChange={(e) => handleChange(e, "address", "jaddah")} label={"Jaddah"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.country.value} handleChange={(e) => handleChange(e, "address", "country")} label={"Country"} />
+                                <Input isRequired={true} value={formData.address.country.value} handleChange={(e) => handleChange(e, "address", "country")} label={"Country"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.po.value} handleChange={(e) => handleChange(e, "address", "po")} label={"PO Box"} />
+                                <Input isRequired={true} value={formData.address.po.value} handleChange={(e) => handleChange(e, "address", "po")} label={"PO Box"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.po.value} handleChange={(e) => handleChange(e, "address", "po")} label={"Zip Code"} />
+                                <Input isRequired={true} value={formData.address.zipCode.value} handleChange={(e) => handleChange(e, "address", "zipCode")} label={"Zip Code"} />
 
                             </Grid>
 
 
 
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.governorate.value} handleChange={(e) => handleChange(e, "address", "governorate")} label={"Governates"} />
-
+                                <Input isRequired={true} value={formData.address.governorate.value} handleChange={(e) => handleChange(e, "address", "governorate")} label={"Governates"} />
                             </Grid>
 
 
@@ -136,9 +128,6 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                         </Grid>
                         <Grid item container spacing={1}>
-
-
-
                         </Grid>
 
                     </Grid>
@@ -306,6 +295,7 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
 
                                     <TextField
+                                        required={true}
                                         size={"small"}
                                         color='primary'
                                         // id="outlined-start-adornment"
@@ -389,23 +379,23 @@ const AdmissionForm = ({ formData, handleChange }) => {
                         <Grid item container spacing={1}>
 
                             <Grid xs={12} md={6} item>
-                                <Input endornment={null} value={formData.nationality.value} handleChange={(e) => handleChange(e, "nationality")} label={"Country Of Nationlity"} />
+                                <Input isRequired={true} endornment={null} value={formData.nationality.value} handleChange={(e) => handleChange(e, "nationality")} label={"Country Of Nationlity"} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input endornment={null} label={'Country Of Birth'} value={formData.birthCountry.value} handleChange={(e) => handleChange(e, "birthCountry")} />
+                                <Input isRequired={true} endornment={null} label={'Country Of Birth'} value={formData.birthCountry.value} handleChange={(e) => handleChange(e, "birthCountry")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input endornment={null} label={"Passport Number"} value={formData.passport.value} handleChange={(e) => handleChange(e, "passport")} />
+                                <Input isRequired={true} endornment={null} label={"Passport Number"} value={formData.passport.value} handleChange={(e) => handleChange(e, "passport")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input endornment={null} label={"Validity Of Residency"} value={formData.residency.value} handleChange={(e) => handleChange(e, "residency")} />
+                                <Input isRequired={true} endornment={null} label={"Validity Of Residency"} value={formData.residency.value} handleChange={(e) => handleChange(e, "residency")} />
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <Input endornment={null} label={"Security Card Number"} value={formData.securityCard.value} handleChange={(e) => handleChange(e, "securityCard")} />
+                                <Input isRequired={true} endornment={null} label={"Security Card Number"} value={formData.securityCard.value} handleChange={(e) => handleChange(e, "securityCard")} />
 
                             </Grid>
                             {/* <Grid xs={12} md={item.screen} item>

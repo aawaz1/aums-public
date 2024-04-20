@@ -20,80 +20,80 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import './phoneInput.css'
 
-const AdmissionForm2 = ({ formData , handleChange}) => {
+const AdmissionForm2 = ({ formData, handleChange }) => {
     const [phone, setPhone] = useState("")
 
     return (
         <Box sx={{ gap: "10rem" }}>
             <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042', padding: "0.2rem" }}>
-                <h4  className='form'>Family Information</h4>
+                <h4 className='form'>Family Information</h4>
             </Box>
             <Box>
                 <CommonAccordion defaultExpanded={true} title={"Fathers Details"}>
 
                     <Grid container spacing={1}>
                         <Grid item container spacing={1}>
-                          
-                                
-                                    <Grid xs={12} md={4} item>
-                                       
-                                         <Input value={formData.family.fatherName.value} handleChange={(e) => handleChange(e, "family", "fatherName")} label={"Fathers Name"} />
-                                       
 
-                                    </Grid>
-                                    <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.fatherDob.value} handleChange={(e) => handleChange(e, "family", "fatherDob")} label={"DOB"} />
-                                     
 
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.fatherNationality.value} handleChange={(e) => handleChange(e, "family", "fatherNationality")} label={"Nationality"} />
-                                     
+                            <Grid xs={12} md={4} item>
 
-                                  </Grid>
-                                  
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.fatherCivilId.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
-                                     
+                                <Input isRequired={true} value={formData.family.fatherName.value} handleChange={(e) => handleChange(e, "family", "fatherName")} label={"Fathers Name"} />
 
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.fatherOccup.value} handleChange={(e) => handleChange(e, "family", "fatherOccup")} label={"Occupation"} />
-                                     
 
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.fatherEmployer.value} handleChange={(e) => handleChange(e, "family", "fatherEmployer")} label={"Employer"} />
-                                     
+                            </Grid>
+                            <Grid xs={12} md={4} item>
 
-                                  </Grid>
-                                  
-                                   
+                                <Input isRequired={true} value={formData.family.fatherDob.value} handleChange={(e) => handleChange(e, "family", "fatherDob")} label={"DOB"} />
 
-                                
-                            
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.fatherNationality.value} handleChange={(e) => handleChange(e, "family", "fatherNationality")} label={"Nationality"} />
+
+
+                            </Grid>
+
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.fatherCivilId.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.fatherOccup.value} handleChange={(e) => handleChange(e, "family", "fatherOccup")} label={"Occupation"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.fatherEmployer.value} handleChange={(e) => handleChange(e, "family", "fatherEmployer")} label={"Employer"} />
+
+
+                            </Grid>
+
+
+
+
+
                             <Grid xs={12} md={4} item>
                                 <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
                                     <label className='label'>Phone Number</label>
 
                                     <PhoneInput
-                                        
+
                                         country={'kw'}
                                         value={formData.family.fatherMobile.value}
                                         // onlyCountries={['in', 'de', 'ru']}
                                         onChange={(value, countryData) => {
                                             const countryCodeNumber = countryData?.dialCode;
-                                            handleChange({ target: { value } },"family", "fatherMobile");
-                                            handleChange({ target: { value: countryCodeNumber } },"family", "fatherMobile", "phoneCode")
+                                            handleChange({ target: { value } }, "family", "fatherMobile");
+                                            handleChange({ target: { value: countryCodeNumber } }, "family", "fatherMobile", "phoneCode")
                                         }}
                                     />
-                                      
-                                    
+
+
                                 </div>
                                 {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
                                 {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
@@ -114,8 +114,8 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                             // onlyCountries={['in', 'de', 'ru']}
                                             onChange={(value, countryData) => {
                                                 const countryCodeNumber = countryData?.dialCode;
-                                                handleChange({ target: { value } },"family", "fatherWorkTel");
-                                                handleChange({ target: { value: countryCodeNumber } },"family", "fatherWorkTel", "phoneCode")
+                                                handleChange({ target: { value } }, "family", "fatherWorkTel");
+                                                handleChange({ target: { value: countryCodeNumber } }, "family", "fatherWorkTel", "phoneCode")
                                             }}
                                         />
 
@@ -134,10 +134,11 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                     <label className='label'>Email Address</label>
 
                                     <TextField
+                                        required={true}
                                         size={"small"}
                                         color='primary'
                                         value={formData.family.fatherEmail.value}
-                                         onChange={(e) => handleChange(e, "family", "fatherEmail")}
+                                        onChange={(e) => handleChange(e, "family", "fatherEmail")}
                                         sx={{
                                             width: "100%",
                                             borderColor: "lightgray",
@@ -206,61 +207,61 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
 
                     <Grid container spacing={1}>
                         <Grid item container spacing={1}>
-                          
-                                
-                                    <Grid xs={12} md={4} item>
-                                    <Input value={formData.family.motherName.value} handleChange={(e) => handleChange(e, "family", "motherName")} label={"Mother Name"} />
-                                       
 
-                                    </Grid>
 
-                                
-                           
                             <Grid xs={12} md={4} item>
-                            <Input value={formData.family.motherDob.value} handleChange={(e) => handleChange(e, "family", "motherDob")} label={"DOB"} />
-                            
+                                <Input isRequired={true} value={formData.family.motherName.value} handleChange={(e) => handleChange(e, "family", "motherName")} label={"Mother Name"} />
+
+
+                            </Grid>
+
+
+
+                            <Grid xs={12} md={4} item>
+                                <Input isRequired={true} value={formData.family.motherDob.value} handleChange={(e) => handleChange(e, "family", "motherDob")} label={"DOB"} />
+
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                            <Input value={formData.family.motherNationality.value} handleChange={(e) => handleChange(e, "family", "motherNationality")} label={"Nationality"} />
-                               
+                                <Input isRequired={true} value={formData.family.motherNationality.value} handleChange={(e) => handleChange(e, "family", "motherNationality")} label={"Nationality"} />
+
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.motherCivilId.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
-                                     
 
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
-                                     
+                                <Input isRequired={true} value={formData.family.motherCivilId.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
 
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
-                                     
 
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
                                 <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
                                     <label className='label'>Phone Number</label>
 
                                     <PhoneInput
-                                        
+
                                         country={'kw'}
                                         value={formData.family.motherMobile.value}
                                         // onlyCountries={['in', 'de', 'ru']}
                                         onChange={(value, countryData) => {
                                             const countryCodeNumber = countryData?.dialCode;
-                                            handleChange({ target: { value } },"family", "motherMobile");
-                                            handleChange({ target: { value: countryCodeNumber } },"family", "motherMobile", "phoneCode")
+                                            handleChange({ target: { value } }, "family", "motherMobile");
+                                            handleChange({ target: { value: countryCodeNumber } }, "family", "motherMobile", "phoneCode")
                                         }}
                                     />
-                                      
-                                    
+
+
                                 </div>
                                 {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
                                 {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
@@ -281,8 +282,8 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                             // onlyCountries={['in', 'de', 'ru']}
                                             onChange={(value, countryData) => {
                                                 const countryCodeNumber = countryData?.dialCode;
-                                                handleChange({ target: { value } },"family", "motherWorkTel");
-                                                handleChange({ target: { value: countryCodeNumber } },"family", "motherWorkTel", "phoneCode")
+                                                handleChange({ target: { value } }, "family", "motherWorkTel");
+                                                handleChange({ target: { value: countryCodeNumber } }, "family", "motherWorkTel", "phoneCode")
                                             }}
                                         />
 
@@ -301,10 +302,11 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                     <label className='label'>Email Address</label>
 
                                     <TextField
+                                        required={true}
                                         size={"small"}
                                         color='primary'
                                         value={formData.family.motherEmail.value}
-                                         onChange={(e) => handleChange(e, "family", "motherEmail")}
+                                        onChange={(e) => handleChange(e, "family", "motherEmail")}
                                         sx={{
                                             width: "100%",
                                             borderColor: "lightgray",
