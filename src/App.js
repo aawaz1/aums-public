@@ -10,10 +10,9 @@ import Download from './components/Download';
 import Document from './components/Document';
 import CustomizedTabs from './components/CommonTab';
 import { useState } from 'react';
+import { Box, Button } from '@mui/material';
 
 function App() {
-
-
 
   const steps = ["PERSONAL", "FAMILY", "HEALTH", "ACADEMIC", "EMERGENCY", "DOCUMENT"];
   const [step, setStep] = useState(0);
@@ -158,21 +157,44 @@ function App() {
     })
 
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (step !== 5) {
+      setStep(step + 1)
+    } else {
+      // Submit
+    }
+  }
+
+  const handleCancel = () => {
+    setStep(0);
+    setFormData(initFormData)
+  }
   return (
     <div className="">
       <CustomizedTabs steps={steps} value={step} />
-      <Routes>
-        <Route path='/' element={<AdmissionForm formData={formData} handleChange={handleChange} />} />
-        <Route path='/form' element={<AdmissionForm2 formData={formData} handleChange={handleChange} />} />
-        <Route path='/from' element={<AdmissionForm3 formData={formData} handleChange={handleChange} />} />
-        <Route path='/from1' element={<AdmissionForm4 formData={formData} handleChange={handleChange} />} />
-        <Route path='/details' element={<Form formData={formData} handleChange={handleChange} />} />
-        <Route path='/download' element={<Download formData={formData} handleChange={handleChange} />} />
-        <Route path='/document' element={<Document formData={formData} handleChange={handleChange} />} />
-      </Routes >
+      <form onSubmit={handleSubmit}>
+        {
+          step == 0 ?
+            <AdmissionForm formData={formData} handleChange={handleChange} />
+            : step == 1 ?
+              <AdmissionForm2 formData={formData} handleChange={handleChange} />
+              : step == 2 ?
+                <AdmissionForm3 formData={formData} handleChange={handleChange} />
+                : step == 3 ?
+                  <AdmissionForm4 formData={formData} handleChange={handleChange} />
+                  : step == 4 ?
+                    <Form formData={formData} handleChange={handleChange} />
+                    : step == 5 ? <Document formData={formData} handleChange={handleChange} /> : null
+        }
+        <Box style={{ height: "4rem" }}></Box>
+        <Box className="submitContainer">
+          <Button className={"cancelButton"} onClick={handleCancel}>Cancel</Button>
+          <Button className={"submitButton"} type="submit">Next</Button>
+        </Box>
 
-
-
+      </form>
     </div >
   );
 }

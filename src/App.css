@@ -28,7 +28,8 @@
   color: #61dafb;
 }
 
-.MuiTableCell-root,.MuiTableCell-root {
+.MuiTableCell-root,
+.MuiTableCell-root {
   border: 1px solid black !important;
 }
 
@@ -37,7 +38,33 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.cancelButton {
+  border: 1px solid rgba(183, 0, 66, 1) !important;
+  color: rgba(183, 0, 66, 1) !important;
+  margin: 0 0.5rem !important;
+  width: 6rem !important;
+}
+
+.submitButton {
+  background-color: rgba(183, 0, 66, 1) !important;
+  color: #fff !important;
+  margin: 0 0.5rem !important;
+  width: 6rem !important;
+}
+
+.submitContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
 }
