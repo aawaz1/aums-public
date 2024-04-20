@@ -19,6 +19,7 @@ import 'react-phone-input-2/lib/style.css';
 import './phoneInput.css'
 import PhoneInput from 'react-phone-input-2';
 
+
 const AdmissionForm = ({ title }) => {
 
     const [phone, setPhone] = useState("");
@@ -27,8 +28,8 @@ const AdmissionForm = ({ title }) => {
         lastName: { value: "", error: "" },
         middleName: { value: "", error: "" },
         dob: { value: null, error: "" },
-        gender: { value: "", error: "" },
-        maritalStatus: { value: "", error: "" },
+        gender: { value: "",option : [{value :"Male" , label :"Male"},{value :"Female" , label :"Female"},{value :"Other" , label :"Other"}], error: "" },
+        maritalStatus: { value: "",option : [{value :"Unmarried" , label :"Unmarried"},{value :"Married" , label :"Married"},{value :"Divorcee" , label :"Divorcee"}], error: "" },
         "civilId": { value: "", error: "" },
         "mobileOne": { value: "", error: "", phoneCode: { value: "" } },
         "mobileTwo": { value: "", error: "", phoneCode: { value: "" } },
@@ -156,6 +157,7 @@ const AdmissionForm = ({ title }) => {
             if (thirdKey) {
                 updateData = updateData[thirdKey]
             }
+            console.log(updateData)
             updateData.value = value;
             return data;
         })
@@ -188,11 +190,19 @@ const AdmissionForm = ({ title }) => {
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.gender.value} handleChange={(e) => handleChange(e, "gender")} label={"Gender"} />
+                                <Input value={formData.gender.value} handleChange={(e) => handleChange(e, "gender")} label={"Gender"}
+                                   option={formData.gender.option}
+                                    select={true}
+                                />
+                                {/* <Select label={"Gender"} /> */}
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.maritalStatus.value} handleChange={(e) => handleChange(e, "maritalStatus")} label={"Martial Status"} />
+                            <Input value={formData.maritalStatus.value} handleChange={(e) => handleChange(e, "maritalStatus")} label={"Martial Status"}
+                                   option={formData.maritalStatus.option}
+                                    select={true}
+                                />
+                               
 
                             </Grid>
                             <Grid xs={12} md={4} item>
@@ -275,10 +285,10 @@ const AdmissionForm = ({ title }) => {
                 <CommonAccordion defaultExpanded={true} title={"Contact Details"}>
 
                     <Grid container spacing={1}>
-                        <Grid item container spacing={1}>
+                        <Grid item container spacing={4}>
 
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
                                     <label className='label'>Phone Number</label>
 
                                     <PhoneInput
@@ -302,7 +312,7 @@ const AdmissionForm = ({ title }) => {
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
                                     <label className='label'>Phone Number Optional</label>
 
 
@@ -311,24 +321,24 @@ const AdmissionForm = ({ title }) => {
                                             width: '100%',
                                             border: '1px solid lightgray',
                                             borderRadius: '12px',
-                                            /* Add any additional styles you need */
-                                        }}
-                                    // country={'us'}
-                                    // value={formData.mobileTwo}
-                                    // onChange={(value, countryData) => {
-                                    //     const countryCodeNumber = countryData?.dialCode;
-                                    //     handleChange({ target: { value } }, "mobileTwo");
-                                    //     handleChange({ target: { value: countryCodeNumber } }, "mobileTwo", "countryCode")
-                                    //     console.log("Country Code Number:", countryCodeNumber);
 
-                                    // }}
+                                        }}
+                                        country={'kw'}
+                                        value={formData.mobileTwo.value}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } }, "mobileTwo");
+                                            handleChange({ target: { value: countryCodeNumber } }, "mobileTwo", "phoneCode")
+                                            console.log("Country Code Number:", countryCodeNumber);
+
+                                        }}
                                     />
                                 </div>
-                               
+
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
                                     <label className='label'>Home Telephone </label>
 
                                     <PhoneInput
@@ -338,26 +348,22 @@ const AdmissionForm = ({ title }) => {
                                             borderRadius: '12px',
                                             /* Add any additional styles you need */
                                         }}
-                                    // country={'us'}
-                                    // value={formData.homeTelOne}
-                                    // onChange={(value, countryData) => {
-                                    //     const countryCodeNumber = countryData?.dialCode;
-                                    //     handleChange({ target: { value } }, "mobileOne");
-                                    //     handleChange({ target: { value: countryCodeNumber } }, "homeTelOne", "countryCode")
-                                    //     console.log("Country Code Number:", countryCodeNumber);
+                                        country={'kw'}
+                                        value={formData.homeTelOne.value}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } }, "homeTelOne");
+                                            handleChange({ target: { value: countryCodeNumber } }, "homeTelOne", "phoneCode")
+                                            console.log("Country Code Number:", countryCodeNumber);
 
-                                    // }}
+                                        }}
                                     />
                                 </div>
-                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
+
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
                                     <label className='label'>Home Telephone (Optional)</label>
 
                                     <PhoneInput
@@ -367,20 +373,22 @@ const AdmissionForm = ({ title }) => {
                                             borderRadius: '12px',
                                             /* Add any additional styles you need */
                                         }}
-                                        country={'us'}
-                                        // value={formData.homeTelTwo}
-                                        onChange={phone => setPhone(phone)}
+                                        country={'kw'}
+                                        value={formData.homeTelTwo.value}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } }, "homeTelTwo");
+                                            handleChange({ target: { value: countryCodeNumber } }, "homeTelTwo", "phoneCode")
+                                            console.log("Country Code Number:", countryCodeNumber);
+
+                                        }}
                                     />
                                 </div>
-                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
+
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
                                     <label className='label'>Work Telephone</label>
 
 
@@ -391,40 +399,25 @@ const AdmissionForm = ({ title }) => {
                                             borderRadius: '12px',
                                             /* Add any additional styles you need */
                                         }}
-                                        country={'us'}
-                                        // value={formData.workTel}
-                                        onChange={phone => setPhone(phone)}
+                                        country={'kw'}
+                                        value={formData.workTel.value}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } }, "workTel");
+                                            handleChange({ target: { value: countryCodeNumber } }, "workTel", "phoneCode")
+                                            console.log("Country Code Number:", countryCodeNumber);
+
+                                        }}
                                     />
                                 </div>
-                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
+
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", width: "100%" }}>
+                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
                                     <label className='label'>Fax Telephone</label>
 
-                                    {/* <TextField
-                                        select
 
-                                        variant="outlined"
-                                        sx={{ width: '20%' }} // Adjust width as needed
-                                        SelectProps={{
-                                            endAdornment: (
-                                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                                    <path fill="none" d="M0 0h24v24H0z" />
-                                                    <path d="M7 10l5 5 5-5H7z" />
-                                                </svg>
-                                            ),
-                                        }}
-                                    >
-                                        <MenuItem value="option1">Option 1</MenuItem>
-                                        <MenuItem value="option2">Option 2</MenuItem>
-                                        <MenuItem value="option3">Option 3</MenuItem>
-                                    </TextField> */}
                                     <PhoneInput
                                         inputStyle={{
                                             width: '100%',
@@ -432,40 +425,25 @@ const AdmissionForm = ({ title }) => {
                                             borderRadius: '12px',
                                             /* Add any additional styles you need */
                                         }}
-                                        country={'us'}
-                                        // value={formData.faxTel}
-                                        onChange={phone => setPhone(phone)}
+                                        country={'kw'}
+                                        value={formData.faxTel.value}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } }, "faxTel");
+                                            handleChange({ target: { value: countryCodeNumber } }, "faxTel", "phoneCode")
+                                            console.log("Country Code Number:", countryCodeNumber);
+
+                                        }}
                                     />
                                 </div>
-                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
+                             
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column"  , gap :"0.3rem"}}>
                                     <label className='label'>Email Address</label>
 
-                                    {/* <TextField
-                                        select
-
-                                        variant="outlined"
-                                        sx={{ width: '20%' }} // Adjust width as needed
-                                        SelectProps={{
-                                            endAdornment: (
-                                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                                    <path fill="none" d="M0 0h24v24H0z" />
-                                                    <path d="M7 10l5 5 5-5H7z" />
-                                                </svg>
-                                            ),
-                                        }}
-                                    >
-                                        <MenuItem value="option1">Option 1</MenuItem>
-                                        <MenuItem value="option2">Option 2</MenuItem>
-                                        <MenuItem value="option3">Option 3</MenuItem>
-                                    </TextField> */}
+                                 
                                     <TextField
                                         size={"small"}
                                         color='primary'
@@ -477,11 +455,9 @@ const AdmissionForm = ({ title }) => {
                                             '& .MuiOutlinedInput-root': {
                                                 '& fieldset': {
                                                     borderColor: 'none',
-                                                    borderRadius: "12px"// Specify your desired border color here
+                                                    borderRadius: "8px"// Specify your desired border color here
                                                 },
-                                                //   '&:hover fieldset': {
-                                                //     borderColor: 'green', // Specify your desired hover border color here
-                                                //   },
+                                               
                                                 '&.Mui-focused fieldset': {
                                                     borderColor: 'black', // Specify your desired focused border color here
                                                 },
@@ -489,38 +465,17 @@ const AdmissionForm = ({ title }) => {
                                         }}
                                         InputProps={{
                                             startAdornment: <InputAdornment position="start"><EmailOutlinedIcon /></InputAdornment>,
+                                            
                                         }}
                                     />
                                 </div>
-                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" , gap :"0.3rem" }}>
                                     <label className='label'>Email Address (Optional)</label>
 
-                                    {/* <TextField
-                                        select
-
-                                        variant="outlined"
-                                        sx={{ width: '20%' }} // Adjust width as needed
-                                        SelectProps={{
-                                            endAdornment: (
-                                                <svg width="24" height="24" viewBox="0 0 24 24">
-                                                    <path fill="none" d="M0 0h24v24H0z" />
-                                                    <path d="M7 10l5 5 5-5H7z" />
-                                                </svg>
-                                            ),
-                                        }}
-                                    >
-                                        <MenuItem value="option1">Option 1</MenuItem>
-                                        <MenuItem value="option2">Option 2</MenuItem>
-                                        <MenuItem value="option3">Option 3</MenuItem>
-                                    </TextField> */}
+                                  
                                     <TextField
                                         size={"small"}
                                         color='primary'
@@ -532,7 +487,7 @@ const AdmissionForm = ({ title }) => {
                                             '& .MuiOutlinedInput-root': {
                                                 '& fieldset': {
                                                     borderColor: 'none',
-                                                    borderRadius: "12px"// Specify your desired border color here
+                                                    borderRadius: "8px"// Specify your desired border color here
                                                 },
                                                 //   '&:hover fieldset': {
                                                 //     borderColor: 'green', // Specify your desired hover border color here
@@ -571,12 +526,32 @@ const AdmissionForm = ({ title }) => {
 
                     <Grid container spacing={1}>
                         <Grid item container spacing={1}>
-                            {Data.Data4.map(item => {
-                                return (<Grid xs={12} md={item.screen} item>
+
+                            <Grid xs={12} md={6} item>
+                                <Input endornment={null} value={formData.nationality.value} handleChange={(e) => handleChange(e, "nationality")} label={"Country Of Nationlity"} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input endornment={null} label={'Country Of Birth'} value={formData.birthCountry.value} handleChange={(e) => handleChange(e, "birthCountry")} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input endornment={null} label={"Passport Number"} value={formData.passport.value} handleChange={(e) => handleChange(e, "passport")} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input endornment={null} label={"Validity Of Residency"} value={formData.residency.value} handleChange={(e) => handleChange(e, "residency")} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input endornment={null} label={"Security Card Number"} value={formData.securityCard.value} handleChange={(e) => handleChange(e, "securityCard")} />
+
+                            </Grid>
+                            {/* <Grid xs={12} md={item.screen} item>
                                     <Input endornment={null} label={item.label} />
 
-                                </Grid>)
-                            })}
+                                </Grid> */}
+
 
 
 

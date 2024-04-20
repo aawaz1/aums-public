@@ -3,8 +3,9 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
+import { MenuItem } from '@mui/material';
 
-const Input = ({ label, size, endornment, schoolname, value, variant, handleChange ,type }) => {
+const Input = ({ label, size, endornment, schoolname, option, value, variant, handleChange, type, select }) => {
   return (
     <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.3rem" }}>
       {label ? <label className='label'>{label}</label> : null}
@@ -13,6 +14,7 @@ const Input = ({ label, size, endornment, schoolname, value, variant, handleChan
         size={size}
         color='primary'
         type={type}
+        select={select}
         // id="outlined-start-adornment"
         // sx={{ m: 1, width: '100%' }}
         sx={{
@@ -38,7 +40,12 @@ const Input = ({ label, size, endornment, schoolname, value, variant, handleChan
         variant={variant}
 
         value={value}
-        onChange={handleChange} />
+        onChange={handleChange} >
+        {option?.map(data => {
+          return <MenuItem value={data?.value} key={data.value}>{data?.label}</MenuItem>
+        })}
+
+      </TextField>
     </div>
 
   )
@@ -47,8 +54,10 @@ const Input = ({ label, size, endornment, schoolname, value, variant, handleChan
 Input.defaultProps = {
   size: "small",
   variant: "outlined",
-  type : "text",
-  value : ""
+  type: "text",
+  value: "",
+  select: false,
+  option: null
 
 }
 
