@@ -20,7 +20,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import './phoneInput.css'
 
-const AdmissionForm2 = ({ title }) => {
+const AdmissionForm2 = ({ formData , handleChange}) => {
     const [phone, setPhone] = useState("")
 
     return (
@@ -33,54 +33,61 @@ const AdmissionForm2 = ({ title }) => {
 
                     <Grid container spacing={1}>
                         <Grid item container spacing={1}>
-                            {FormData.Data1.map(item => {
-                                return (
+                          
+                                
                                     <Grid xs={12} md={4} item>
-                                        <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                            <label className='label'>{item.label}</label>
-
-                                            <TextField
-                                                size={"small"}
-                                                color='primary'
-                                                // id="outlined-start-adornment"
-                                                // sx={{ m: 1, width: '100%' }}
-                                                sx={{
-                                                    width: "100%",
-                                                    borderColor: "lightgray",
-                                                    '& .MuiOutlinedInput-root': {
-                                                        '& fieldset': {
-                                                            borderColor: 'none',
-                                                            borderRadius: "12px"// Specify your desired border color here
-                                                        },
-                                                        //   '&:hover fieldset': {
-                                                        //     borderColor: 'green', // Specify your desired hover border color here
-                                                        //   },
-                                                        '&.Mui-focused fieldset': {
-                                                            borderColor: 'black', // Specify your desired focused border color here
-                                                        },
-                                                    },
-                                                }}
-                                                InputProps={{
-                                                    startAdornment: <InputAdornment position="start"></InputAdornment>,
-                                                }}
-                                            />
-                                        </div>
-                                        {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                        {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                                   <label className='label'>{item.label}</label>
-                                                   <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                               </div> */}
+                                       
+                                         <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherName")} label={"Fathers Name"} />
+                                       
 
                                     </Grid>
+                                    <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherDob")} label={"DOB"} />
+                                     
 
-                                )
-                            })}
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherNationality")} label={"Nationality"} />
+                                     
+
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
+                                     
+
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
+                                     
+
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherOccup")} label={"Occupation"} />
+                                     
+
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherEmployer")} label={"Occupation"} />
+                                     
+
+                                  </Grid>
+                                  
+                                   
+
+                                
+                            
                             <Grid xs={12} md={4} item>
                                 <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
                                     <label className='label'>Phone Number</label>
 
                                     <PhoneInput
-                                        // style={{ width: '100%', border: '1px solid lightgray', borderRadius: "12px" }}
+                                        
                                         country={'ku'}
                                         value={phone}
                                         onChange={phone => setPhone(phone)}
