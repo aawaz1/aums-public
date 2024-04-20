@@ -43,7 +43,7 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                     </Grid>
                                     <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.family.fatherDob.value} handleChange={(e) => handleChange(e, "family", "fatherDob")} label={"DOB"} />
+                                       <Input type={"date"} value={formData.family.fatherDob.value} handleChange={(e) => handleChange(e, "family", "fatherDob")} label={"DOB"} />
                                      
 
                                   </Grid>
@@ -159,11 +159,7 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                         }}
                                     />
                                 </div>
-                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
+                              
 
                             </Grid>
 
@@ -173,29 +169,7 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
 
                         </Grid>
                         <Grid item container spacing={1}>
-                            {/* {Data.Data2.map(item => {
-                                    return (<Grid xs={12} md={item.screen} item>
-                                        <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                            <label className='label'>{item.label}</label>
-                                            <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                        </div>
-
-                                    </Grid>)
-                                })} */}
-                            {/* <Grid xs={12} md={4} item>
-                                    <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                        <label className="label">DOB</label>
-                                        <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                    </div>
-                                </Grid>
-                                <Grid xs={12} md={4} item> <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                    <label className="label">Gender</label>
-                                    <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                </div></Grid>
-                                <Grid xs={12} md={4} item > <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                    <label className="label">Martial Status</label>
-                                    <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                </div></Grid> */}
+                           
 
 
                         </Grid>
@@ -209,7 +183,7 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                           
                                 
                                     <Grid xs={12} md={4} item>
-                                    <Input value={formData.family.motherName.value} handleChange={(e) => handleChange(e, "family", "motherName")} label={"Mother Name"} />
+                                    <Input isRequired={true} value={formData.family.motherName.value} handleChange={(e) => handleChange(e, "family", "motherName")} label={"Mother Name"} />
                                        
 
                                     </Grid>
@@ -217,30 +191,30 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                 
                            
                             <Grid xs={12} md={4} item>
-                            <Input value={formData.family.motherDob.value} handleChange={(e) => handleChange(e, "family", "motherDob")} label={"DOB"} />
+                            <Input type={"date"} isRequired={true} value={formData.family.motherDob.value} handleChange={(e) => handleChange(e, "family", "motherDob")} label={"DOB"} />
                             
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                            <Input value={formData.family.motherNationality.value} handleChange={(e) => handleChange(e, "family", "motherNationality")} label={"Nationality"} />
+                            <Input isRequired={true} value={formData.family.motherNationality.value} handleChange={(e) => handleChange(e, "family", "motherNationality")} label={"Nationality"} />
                                
 
                             </Grid>
                             <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.family.motherCivilId.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
+                                       <Input isRequired={true} value={formData.family.motherCivilId.value} handleChange={(e) => handleChange(e, "family", "motherCivilId")} label={"Civil Id Number"} />
                                      
 
                                   </Grid>
                                   <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
+                                       <Input isRequired={true} value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
                                      
 
                                   </Grid>
                                   <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
+                                       <Input isRequired={true} value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
                                      
 
                                   </Grid>

@@ -19,6 +19,7 @@ const Input = ({ label, size, endornment, schoolname, option, value, variant, ha
         // id="outlined-start-adornment"
         // sx={{ m: 1, width: '100%' }}
         sx={{
+          background :"#F6F2F8",
           width: "100%",
           borderColor: "lightgray",
           '& .MuiOutlinedInput-root': {

@@ -64,7 +64,7 @@ function App() {
       "appartment": { value: null, error: "" },
       "street": { value: "", error: "" },
       "area": { value: "", error: "" },
-      "jaddah": { value: false, option: [{ value: true, label: true }, { value: false, label: false }], error: "" },
+      "jaddah": { value: null, option: [{ value: true, label: "True" }, { value: false, label: "False" }], error: "" },
       "country": { value: "", error: "" },
       "po": { value: null, error: "" },
       "zipCode": { value: null, error: "" },

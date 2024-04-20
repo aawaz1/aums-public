@@ -108,7 +108,8 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.address.jaddah.value} handleChange={(e) => handleChange(e, "address", "area")} label={"Jaddah"} />
+                                <Input value={formData.address.jaddah.value} option={formData.address.jaddah.option}
+                                    select={true} handleChange={(e) => handleChange(e, "address", "jaddah")} label={"Jaddah"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
@@ -308,9 +309,11 @@ const AdmissionForm = ({ formData, handleChange }) => {
                                     <TextField
                                         size={"small"}
                                         color='primary'
+                                       
                                         // id="outlined-start-adornment"
                                         // sx={{ m: 1, width: '100%' }}
                                         sx={{
+                                            background :"#F6F2F8",
                                             width: "100%",
                                             borderColor: "lightgray",
                                             '& .MuiOutlinedInput-root': {
@@ -343,6 +346,7 @@ const AdmissionForm = ({ formData, handleChange }) => {
                                         // id="outlined-start-adornment"
                                         // sx={{ m: 1, width: '100%' }}
                                         sx={{
+                                            background :"#F6F2F8",
                                             width: "100%",
                                             borderColor: "lightgray",
                                             '& .MuiOutlinedInput-root': {
