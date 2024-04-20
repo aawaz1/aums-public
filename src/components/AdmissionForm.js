@@ -20,10 +20,10 @@ import './phoneInput.css'
 import PhoneInput from 'react-phone-input-2';
 
 
-const AdmissionForm = ({ formData , handleChange}) => {
+const AdmissionForm = ({ formData, handleChange }) => {
 
     const [phone, setPhone] = useState("");
-   
+
     return (
         <Box sx={{ gap: "10rem" }}>
             <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042', padding: "0.2rem" }}>
@@ -35,35 +35,35 @@ const AdmissionForm = ({ formData , handleChange}) => {
                     <Grid container spacing={1}>
                         <Grid item container spacing={4}>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.firstName.value} handleChange={(e) => handleChange(e, "firstName")} label={"First Name"} />
+                                <Input isRequired={true} value={formData.firstName.value} handleChange={(e) => handleChange(e, "firstName")} label={"First Name"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.middleName.value} handleChange={(e) => handleChange(e, "middleName")} label={"Middle Name"} />
+                                <Input isRequired={true} value={formData.middleName.value} handleChange={(e) => handleChange(e, "middleName")} label={"Middle Name"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.lastName.value} handleChange={(e) => handleChange(e, "lastName")} label={"Family Name"} />
+                                <Input isRequired={true} value={formData.lastName.value} handleChange={(e) => handleChange(e, "lastName")} label={"Family Name"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                                <Input value={formData.dob.value} type={"date"} handleChange={(e) => handleChange(e, "dob")} label={"Date Of Birth"} />
+                                <Input isRequired={true} value={formData.dob.value} type={"date"} handleChange={(e) => handleChange(e, "dob")} label={"Date Of Birth"} />
 
                             </Grid>
                             <Grid xs={12} md={4} item>
                                 <Input value={formData.gender.value} handleChange={(e) => handleChange(e, "gender")} label={"Gender"}
-                                   option={formData.gender.option}
+                                    option={formData.gender.option}
                                     select={true}
                                 />
                                 {/* <Select label={"Gender"} /> */}
 
                             </Grid>
                             <Grid xs={12} md={4} item>
-                            <Input value={formData.maritalStatus.value} handleChange={(e) => handleChange(e, "maritalStatus")} label={"Martial Status"}
-                                   option={formData.maritalStatus.option}
+                                <Input value={formData.maritalStatus.value} handleChange={(e) => handleChange(e, "maritalStatus")} label={"Martial Status"}
+                                    option={formData.maritalStatus.option}
                                     select={true}
                                 />
-                               
+
 
                             </Grid>
                             <Grid xs={12} md={4} item>
@@ -149,7 +149,7 @@ const AdmissionForm = ({ formData , handleChange}) => {
                         <Grid item container spacing={4}>
 
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.5rem" }}>
                                     <label className='label'>Phone Number</label>
 
                                     <PhoneInput
@@ -173,7 +173,7 @@ const AdmissionForm = ({ formData , handleChange}) => {
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.5rem" }}>
                                     <label className='label'>Phone Number Optional</label>
 
 
@@ -199,7 +199,7 @@ const AdmissionForm = ({ formData , handleChange}) => {
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.5rem" }}>
                                     <label className='label'>Home Telephone </label>
 
                                     <PhoneInput
@@ -224,7 +224,7 @@ const AdmissionForm = ({ formData , handleChange}) => {
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.5rem" }}>
                                     <label className='label'>Home Telephone (Optional)</label>
 
                                     <PhoneInput
@@ -249,7 +249,7 @@ const AdmissionForm = ({ formData , handleChange}) => {
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.5rem" }}>
                                     <label className='label'>Work Telephone</label>
 
 
@@ -275,7 +275,7 @@ const AdmissionForm = ({ formData , handleChange}) => {
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                            <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" ,gap: "0.5rem"  }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.5rem" }}>
                                     <label className='label'>Fax Telephone</label>
 
 
@@ -297,14 +297,14 @@ const AdmissionForm = ({ formData , handleChange}) => {
                                         }}
                                     />
                                 </div>
-                             
+
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column"  , gap :"0.3rem"}}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.3rem" }}>
                                     <label className='label'>Email Address</label>
 
-                                 
+
                                     <TextField
                                         size={"small"}
                                         color='primary'
@@ -318,7 +318,7 @@ const AdmissionForm = ({ formData , handleChange}) => {
                                                     borderColor: 'none',
                                                     borderRadius: "8px"// Specify your desired border color here
                                                 },
-                                               
+
                                                 '&.Mui-focused fieldset': {
                                                     borderColor: 'black', // Specify your desired focused border color here
                                                 },
@@ -326,17 +326,17 @@ const AdmissionForm = ({ formData , handleChange}) => {
                                         }}
                                         InputProps={{
                                             startAdornment: <InputAdornment position="start"><EmailOutlinedIcon /></InputAdornment>,
-                                            
+
                                         }}
                                     />
                                 </div>
 
                             </Grid>
                             <Grid xs={12} md={6} item>
-                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" , gap :"0.3rem" }}>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.3rem" }}>
                                     <label className='label'>Email Address (Optional)</label>
 
-                                  
+
                                     <TextField
                                         size={"small"}
                                         color='primary'

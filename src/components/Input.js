@@ -5,12 +5,13 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import { MenuItem } from '@mui/material';
 
-const Input = ({ label, size, endornment, schoolname, option, value, variant, handleChange, type, select }) => {
+const Input = ({ label, size, endornment, schoolname, option, value, variant, handleChange, type, select, isRequired }) => {
   return (
     <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.3rem" }}>
       {label ? <label className='label'>{label}</label> : null}
 
       <TextField
+        required={isRequired}
         size={size}
         color='primary'
         type={type}
@@ -57,7 +58,8 @@ Input.defaultProps = {
   type: "text",
   value: "",
   select: false,
-  option: null
+  option: null,
+  isRequired: false
 
 }
 
