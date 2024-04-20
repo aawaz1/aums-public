@@ -39,7 +39,7 @@ function App() {
     "passport": { value: null, error: "" },
     "residency": { value: "", error: "" },
     "securityCard": { value: null, error: "" },
-    "isHealthRecord": { value: false, error: "" },
+    "isHealthRecord": { value: null, error: "" },
     "healthNote": { value: "", error: "" },
     "isSuspended": { value: false, error: "" },
     "suspensionNote": { value: "", error: "" },
