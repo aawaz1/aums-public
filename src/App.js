@@ -207,7 +207,9 @@ function App() {
       })
 
       fetch("https://aums.api.ansoftt.com:1028/v1/student/admission", {
-        method: "POST", 'Content-Type': 'application/json', body: JSON.stringify({
+        method: "POST", headers: {
+          'Content-Type': 'application/json'
+        }, body: JSON.stringify({
           "firstName": formData.firstName.value,
           "middleName": formData.middleName.value,
           "lastName": formData.lastName.value,
@@ -284,17 +286,17 @@ function App() {
           ],
           "education": [...formData.school.value?.map(data => ({
             "name": data.name.value,
-            "type": data.type.value,
+            "type": "school",
             "gpa": data.gpa.value,
             "date": data.date.value,
             "degree": data.degree.value,
           })),
           ...formData.college.value?.map(data => ({
             "name": data.name.value,
-            "type": data.type.value,
+            "type": "college",
             "country": data.country.value,
             "gpa": data.gpa.value,
-            "date": data.date.value,
+            "date": new Date(),
             "major": data.major.value,
             "degree": data.degree.value
           }))
@@ -309,17 +311,18 @@ function App() {
             })),
           ]
         })
-      }).then((res) => {
-        const result = JSON.parse(res)
-        if (result.ok) {
-          alert("Form submitted!");
+      }).then(async (res) => {
+        const result = res
+        if (result.status) {
           setStep(0);
           setFormData(initFormData);
+          alert("Form submitted!")
         } else {
           alert("Form submission failed!")
         }
 
       }).catch((err) => {
+        console.log("Err: ", err)
         alert("Form submission failed!")
       })
     }
