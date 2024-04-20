@@ -85,6 +85,7 @@ const Download = ({ formData, handleChange , value }) => {
       />
       <div style={{ display: 'flex', justifyContent: "center", alignItems: 'center' }}>
         <button
+        type="button"
           onClick={handleButtonClick}
           style={{ backgroundColor: '#B70042', color: 'white', cursor: 'pointer' }}
         >
