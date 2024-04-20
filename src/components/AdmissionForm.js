@@ -144,10 +144,11 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                                     <PhoneInput
                                         inputStyle={{
-                                            width: '100%',
+                                            width: "100%", background: "#F6F2F8",
                                             border: '1px solid lightgray',
                                             borderRadius: '12px',
-                                            /* Add any additional styles you need */
+                                            height: '2.6rem',
+                                           
                                         }}
                                         country={'kw'}
                                         value={formData.mobileOne.value}
@@ -169,9 +170,10 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                                     <PhoneInput
                                         inputStyle={{
-                                            width: '100%',
+                                            width: "100%", background: "#F6F2F8",
                                             border: '1px solid lightgray',
                                             borderRadius: '12px',
+                                            height: '2.6rem',
 
                                         }}
                                         country={'kw'}
@@ -194,9 +196,10 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                                     <PhoneInput
                                         inputStyle={{
-                                            width: '100%',
+                                            width: "100%", background: "#F6F2F8",
                                             border: '1px solid lightgray',
                                             borderRadius: '12px',
+                                            height: '2.6rem',
                                             /* Add any additional styles you need */
                                         }}
                                         country={'kw'}
@@ -219,9 +222,10 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                                     <PhoneInput
                                         inputStyle={{
-                                            width: '100%',
+                                            width: "100%", background: "#F6F2F8",
                                             border: '1px solid lightgray',
                                             borderRadius: '12px',
+                                            height: '2.6rem',
                                             /* Add any additional styles you need */
                                         }}
                                         country={'kw'}
@@ -245,8 +249,9 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                                     <PhoneInput
                                         inputStyle={{
-                                            width: '100%',
+                                            width: "100%", background: "#F6F2F8",
                                             border: '1px solid lightgray',
+                                            height: '2.6rem',
                                             borderRadius: '12px',
                                             /* Add any additional styles you need */
                                         }}
@@ -271,7 +276,8 @@ const AdmissionForm = ({ formData, handleChange }) => {
 
                                     <PhoneInput
                                         inputStyle={{
-                                            width: '100%',
+                                            width: "100%", background: "#F6F2F8",
+                                            height: '2.6rem',
                                             border: '1px solid lightgray',
                                             borderRadius: '12px',
                                             /* Add any additional styles you need */

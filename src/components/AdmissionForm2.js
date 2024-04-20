@@ -80,6 +80,7 @@ const AdmissionForm2 = ({ formData, handleChange }) => {
                                     <label className='label'>Phone Number</label>
 
                                     <PhoneInput
+                                    inputStyle={{ width: "100%" ,background :"#F6F2F8",   height: '2.6rem', }}
 
                                         country={'kw'}
                                         value={formData.family.fatherMobile.value}
@@ -106,6 +107,7 @@ const AdmissionForm2 = ({ formData, handleChange }) => {
 
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                         <PhoneInput
+                                        inputStyle={{ width: "100%" ,background :"#F6F2F8",  height: '2.6rem', }}
                                             // style={{ width: '100%', border: '1px solid lightgray', borderRadius: "12px" }}
                                             country={'kw'}
                                             value={formData.family.fatherWorkTel.value}
@@ -139,6 +141,7 @@ const AdmissionForm2 = ({ formData, handleChange }) => {
                                         onChange={(e) => handleChange(e, "family", "fatherEmail")}
                                         sx={{
                                             width: "100%",
+                                            background: "#F6F2F8",
                                             borderColor: "lightgray",
                                             '& .MuiOutlinedInput-root': {
                                                 '& fieldset': {
@@ -183,145 +186,144 @@ const AdmissionForm2 = ({ formData, handleChange }) => {
 
                             <Grid xs={12} md={4} item>
                                 <Input isRequired={true} value={formData.family.motherName.value} handleChange={(e) => handleChange(e, "family", "motherName")} label={"Mother Name"} />
-
-
-
-                                <Grid xs={12} md={4} item>
-                                    <Input type={"date"} isRequired={true} value={formData.family.motherDob.value} handleChange={(e) => handleChange(e, "family", "motherDob")} label={"DOB"} />
-
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-                                    <Input isRequired={true} value={formData.family.motherNationality.value} handleChange={(e) => handleChange(e, "family", "motherNationality")} label={"Nationality"} />
-
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-
-                                    <Input isRequired={true} value={formData.family.motherCivilId.value} handleChange={(e) => handleChange(e, "family", "motherCivilId")} label={"Civil Id Number"} />
-
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-
-                                    <Input isRequired={true} value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
-
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-
-                                    <Input isRequired={true} value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
-
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-
-                                    <Input isRequired={true} value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
-
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-
-                                    <Input isRequired={true} value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
-
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-                                    <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                        <label className='label'>Phone Number</label>
-
-                                        <PhoneInput
-
-                                            country={'kw'}
-                                            value={formData.family.motherMobile.value}
-                                            // onlyCountries={['in', 'de', 'ru']}
-                                            onChange={(value, countryData) => {
-                                                const countryCodeNumber = countryData?.dialCode;
-                                                handleChange({ target: { value } }, "family", "motherMobile");
-                                                handleChange({ target: { value: countryCodeNumber } }, "family", "motherMobile", "phoneCode")
-                                            }}
-                                        />
-
-
-                                    </div>
-                                    {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                    {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-                                    <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.2rem" }}>
-                                        <label className='label'>Work Telephone</label>
-
-                                        <div style={{ display: 'flex', alignItems: 'center' }}>
-                                            <PhoneInput
-                                                // style={{ width: '100%', border: '1px solid lightgray', borderRadius: "12px" }}
-                                                country={'kw'}
-                                                value={formData.family.motherWorkTel.value}
-                                                // onlyCountries={['in', 'de', 'ru']}
-                                                onChange={(value, countryData) => {
-                                                    const countryCodeNumber = countryData?.dialCode;
-                                                    handleChange({ target: { value } }, "family", "motherWorkTel");
-                                                    handleChange({ target: { value: countryCodeNumber } }, "family", "motherWorkTel", "phoneCode")
-                                                }}
-                                            />
-
-
-                                        </div>
-                                    </div>
-                                    {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                    {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
-
-                                </Grid>
-                                <Grid xs={12} md={4} item>
-                                    <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                        <label className='label'>Email Address</label>
-
-                                        <TextField
-                                            required={true}
-                                            size={"small"}
-                                            color='primary'
-                                            value={formData.family.motherEmail.value}
-                                            onChange={(e) => handleChange(e, "family", "motherEmail")}
-                                            sx={{
-                                                width: "100%",
-                                                borderColor: "lightgray",
-                                                '& .MuiOutlinedInput-root': {
-                                                    '& fieldset': {
-                                                        borderColor: 'none',
-                                                        borderRadius: "12px"// Specify your desired border color here
-                                                    },
-                                                    //   '&:hover fieldset': {
-                                                    //     borderColor: 'green', // Specify your desired hover border color here
-                                                    //   },
-                                                    '&.Mui-focused fieldset': {
-                                                        borderColor: 'black', // Specify your desired focused border color here
-                                                    },
-                                                },
-                                            }}
-                                            InputProps={{
-                                                startAdornment: <InputAdornment position="start"><EmailOutlinedIcon /></InputAdornment>,
-                                            }}
-                                        />
-                                    </div>
-                                    {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                    {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                               <label className='label'>{item.label}</label>
-                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                           </div> */}
-
-                                </Grid>
-
-
-
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+                                <Input type={"date"} isRequired={true} value={formData.family.motherDob.value} handleChange={(e) => handleChange(e, "family", "motherDob")} label={"DOB"} />
 
 
                             </Grid>
+                            <Grid xs={12} md={4} item>
+                                <Input isRequired={true} value={formData.family.motherNationality.value} handleChange={(e) => handleChange(e, "family", "motherNationality")} label={"Nationality"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.motherCivilId.value} handleChange={(e) => handleChange(e, "family", "motherCivilId")} label={"Civil Id Number"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
+
+
+                            </Grid>
+                            {/* <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
+
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+
+                                <Input isRequired={true} value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
+
+
+                            </Grid> */}
+                            <Grid xs={12} md={4} item>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", width: "100%" }}>
+                                    <label className='label'>Phone Number</label>
+
+                                    <PhoneInput
+                                        inputStyle={{ width: "100%" ,background :"#F6F2F8",  height: '2.6rem', }}
+                                        country={'kw'}
+                                        value={formData.family.motherMobile.value}
+                                        // onlyCountries={['in', 'de', 'ru']}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } }, "family", "motherMobile");
+                                            handleChange({ target: { value: countryCodeNumber } }, "family", "motherMobile", "phoneCode")
+                                        }}
+                                    />
+
+
+                                </div>
+                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
+                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                                               <label className='label'>{item.label}</label>
+                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
+                                           </div> */}
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column", gap: "0.2rem" }}>
+                                    <label className='label'>Work Telephone</label>
+
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <PhoneInput
+                                            // style={{ width: '100%', border: '1px solid lightgray', borderRadius: "12px" }}
+                                            inputStyle={{ width: "100%" ,background :"#F6F2F8",  height: '2.6rem', }}
+                                            country={'kw'}
+                                            value={formData.family.motherWorkTel.value}
+                                            // onlyCountries={['in', 'de', 'ru']}
+                                            onChange={(value, countryData) => {
+                                                const countryCodeNumber = countryData?.dialCode;
+                                                handleChange({ target: { value } }, "family", "motherWorkTel");
+                                                handleChange({ target: { value: countryCodeNumber } }, "family", "motherWorkTel", "phoneCode")
+                                            }}
+                                        />
+
+
+                                    </div>
+                                </div>
+                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
+                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                                               <label className='label'>{item.label}</label>
+                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
+                                           </div> */}
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+                                <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                                    <label className='label'>Email Address</label>
+
+                                    <TextField
+                                        required={true}
+                                        size={"small"}
+                                        color='primary'
+                                        value={formData.family.motherEmail.value}
+                                        onChange={(e) => handleChange(e, "family", "motherEmail")}
+                                        sx={{
+                                            width: "100%",
+                                            background: "#F6F2F8",
+                                            borderColor: "lightgray",
+                                            '& .MuiOutlinedInput-root': {
+                                                '& fieldset': {
+                                                    borderColor: 'none',
+                                                    borderRadius: "12px"// Specify your desired border color here
+                                                },
+                                                //   '&:hover fieldset': {
+                                                //     borderColor: 'green', // Specify your desired hover border color here
+                                                //   },
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: 'black', // Specify your desired focused border color here
+                                                },
+                                            },
+                                        }}
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start"><EmailOutlinedIcon /></InputAdornment>,
+                                        }}
+                                    />
+                                </div>
+                                {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
+                                {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
+                                               <label className='label'>{item.label}</label>
+                                               <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
+                                           </div> */}
+
+                            </Grid>
+
+
+                        </Grid>
+                        <Grid item container spacing={1}>
+
 
 
                         </Grid>

@@ -99,7 +99,8 @@ const Form = ({ formData, handleChange }) => {
                                     inputStyle={{
                                         width: '100%',
                                         border: '1px solid lightgray',
-                                        borderRadius: '12px',
+                                        borderRadius: '8px',
+                                        background :"#F6F2F8",  height: '2.6rem',
                                         /* Add any additional styles you need */
                                     }}
                                     country={'kw'}
@@ -128,7 +129,8 @@ const Form = ({ formData, handleChange }) => {
                                     inputStyle={{
                                         width: '100%',
                                         border: '1px solid lightgray',
-                                        borderRadius: '12px',
+                                        borderRadius: '8px',
+                                       background :"#F6F2F8",  height: '2.6rem',
                                         /* Add any additional styles you need */
                                     }}
                                     country={'kw'}
@@ -155,7 +157,7 @@ const Form = ({ formData, handleChange }) => {
 
                     </Grid>
                 </CommonAccordion>
-                <CommonAccordion defaultExpanded={true} title={"SponsorShip Details"}>
+                {/* <CommonAccordion defaultExpanded={true} title={"SponsorShip Details"}>
                     <Box><h4>How Do You Expect To Meet The Cost Of Tution And Other Expenses ? Check All That Applies </h4></Box>
 
                     <TableContainer component={Paper}>
@@ -190,7 +192,7 @@ const Form = ({ formData, handleChange }) => {
                         </Table>
                     </TableContainer>
 
-                </CommonAccordion>
+                </CommonAccordion> */}
                 <Box sx={{ padding: '2rem' }}>
                     <Box ><h4>Declaration & Acknowledgment </h4></Box>
                     <Box sx={{ display: 'flex' }}>
@@ -202,7 +204,7 @@ const Form = ({ formData, handleChange }) => {
 
                         /></div>
                         <div>I The Undersigned hereby certify that the above Information is complete , accurate and correct . I authorize AUMS and related officials to verify alL statements contains therein and give the University the absolute discreation to use these documents whenever and whatever it seems fit in the connection with the tasks
-                            <br /> Withholding Information , misrepresentation or forgery of the presented documents renders me subject to immediate dismissal from the school and all the applicable legal penalities.
+                             Withholding Information , misrepresentation or forgery of the presented documents renders me subject to immediate dismissal from the school and all the applicable legal penalities.
                             <br />
                             All Documents presented by the applicant  to complete a file for admission  become the property of AUMS </div>
                     </Box></Box>
