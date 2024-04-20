@@ -3,16 +3,9 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 
-const AdmissionForm5 = () => {
-    const [check1, setChecked1] = useState(false);
-    const [check2, setChecked2] = useState(false);
+const AdmissionForm5 = ({ formData, handleChange }) => {
 
-    const handleChange1 = (event) => {
-        setChecked1(event.target.checked);
-    };
-    const handleChange2 = (event) => {
-        setChecked2(event.target.checked);
-    };
+
     const CustomCheckboxYes = styled(Checkbox)(({ theme }) => ({
         color: '#B70042', // Set the color of the checkbox itself
         '&.Mui-checked': {
@@ -35,16 +28,20 @@ const AdmissionForm5 = () => {
             </Box> */}
             <Box sx={{ padding: "1rem", fontSize: "1.2rem", fontWeight: "1rem" }}>
                 <p>
-                Have You Ever Been Subject to any academic or discipilanary action ( i.e. probation ,suspension , dismissal ,etc)  , From any Instituiton Attended
+                    Have You Ever Been Subject to any academic or discipilanary action ( i.e. probation ,suspension , dismissal ,etc)  , From any Instituiton Attended
                 </p>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                     <FormControlLabel
-                        control={< CustomCheckboxYes Checkbox checked={check1} onChange={handleChange1} />}
+                        control={< CustomCheckboxYes Checkbox checked={formData.isSuspended.value === true} onChange={e => {
+                            handleChange({ target: { value: e.target.checked === true ? true : null } }, "isSuspended")
+                        }} />}
                         label="Yes"
                     />
                     <FormControlLabel
 
-                        control={< CustomCheckboxNo Checkbox checked={check2} onChange={handleChange2} />}
+                        control={< CustomCheckboxNo Checkbox checked={formData.isSuspended.value === false} onChange={e => {
+                            handleChange({ target: { value: e.target.checked === true ? false : null } }, "isSuspended")
+                        }} />}
                         label="No"
                     />
                 </Box>
@@ -54,8 +51,14 @@ const AdmissionForm5 = () => {
 
                     <h4 style={{ color: "Darkgray", fontSize: "1rem" }} className='form'>If Yes Please Indicate Details</h4>
                     <TextField
-                       multiline
-                       rows={4}
+                        disabled={!formData.isSuspended.value}
+                        required={formData.isSuspended.value}
+                        value={formData.suspensionNote.value}
+                        onChange={e => {
+                            handleChange(e, "suspensionNote")
+                        }}
+                        multiline
+                        rows={4}
                         size={"small"}
                         color='primary'
                         // id="outlined-start-adornment"

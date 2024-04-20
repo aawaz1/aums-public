@@ -15,7 +15,7 @@ import { Box, Button } from '@mui/material';
 function App() {
 
   const steps = ["PERSONAL", "FAMILY", "HEALTH", "ACADEMIC", "EMERGENCY", "DOCUMENT"];
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(3);
 
   const initFormData = {
     firstName: { value: "", error: "" },
@@ -40,12 +40,12 @@ function App() {
     "securityCard": { value: null, error: "" },
     "isHealthRecord": { value: false, error: "" },
     "healthNote": { value: "", error: "" },
-    "isSuspended": { value: false, error: "" },
+    "isSuspended": { value: null, error: "" },
     "suspensionNote": { value: "", error: "" },
     "sponsorship": {
       "parents": { value: false, error: "" },
     },
-    "archivements": [{ value: "", error: "" }],
+    "archivements": { value: [{ value: "", error: "" }] },
     "address": {
       "home": { value: "", error: "" },
       "block": { value: null, error: "" },
@@ -65,8 +65,8 @@ function App() {
       "fatherCivilId": { value: null, error: "" },
       "fatherOccup": { value: "", error: "" },
       "fatherEmployer": { value: "", error: "" },
-      "fatherMobile": { value: null, error: "" , phoneCode: { value: "" } },
-      "fatherWorkTel": { value: null, error: "" , phoneCode: { value: "" } },
+      "fatherMobile": { value: null, error: "", phoneCode: { value: "" } },
+      "fatherWorkTel": { value: null, error: "", phoneCode: { value: "" } },
       "fatherEmail": { value: "", error: "" },
       "motherName": { value: "", error: "" },
       "motherDob": { value: null, error: "" },
@@ -74,8 +74,8 @@ function App() {
       "motherCivilId": { value: null, error: "" },
       "motherOccup": { value: "", error: "" },
       "motherEmployer": { value: "", error: "" },
-      "motherMobile": { value: null, error: "" , phoneCode: { value: "" } },
-      "motherWorkTel": { value: null, error: "" , phoneCode: { value: "" } },
+      "motherMobile": { value: null, error: "", phoneCode: { value: "" } },
+      "motherWorkTel": { value: null, error: "", phoneCode: { value: "" } },
       "motherEmail": { value: "", error: "" },
     },
     "emergency": [
@@ -92,15 +92,37 @@ function App() {
         "civilId": "876542345672"
       }
     ],
-    "education": [
-      {
-        "name": { value: "", error: "" },
-        "type": { value: "", error: "" },
-        "gpa": { value: null, error: "" },
-        "date": { value: null, error: "" },
-        "degree": { value: "", error: "" },
-      },
-      {
+    // "education": [
+    //   {
+    //     "name": { value: "", error: "" },
+    //     "type": { value: "", error: "" },
+    //     "gpa": { value: null, error: "" },
+    //     "date": { value: null, error: "" },
+    //     "degree": { value: "", error: "" },
+    //   },
+    //   {
+    //     "name": { value: "", error: "" },
+    //     "type": { value: "", error: "" },
+    //     "country": { value: "", error: "" },
+    //     "gpa": { value: null, error: "" },
+    //     "date": { value: null, error: "" },
+    //     "major": { value: "", error: "" },
+    //     "degree": { value: "", error: "" },
+    //   }
+    // ],
+    "school": {
+      value: [
+        {
+          "name": { value: "", error: "" },
+          "type": { value: "", error: "" },
+          "gpa": { value: "", error: "" },
+          "date": { value: "", error: "" },
+          "degree": { value: "", error: "" },
+        },
+      ]
+    },
+    "college": {
+      value: [{
         "name": { value: "", error: "" },
         "type": { value: "", error: "" },
         "country": { value: "", error: "" },
@@ -108,17 +130,17 @@ function App() {
         "date": { value: null, error: "" },
         "major": { value: "", error: "" },
         "degree": { value: "", error: "" },
-      }
-    ],
+      }]
+    },
     "languages": [
       {
-        "language": { value: "", error: "" },
+        "language": { value: "", error: "English" },
         "read": { value: "", error: "" },
         "write": { value: "", error: "" },
         "speak": { value: "", error: "" },
       },
       {
-        "language": { value: "", error: "" },
+        "language": { value: "", error: "Arabic" },
         "read": { value: "", error: "" },
         "write": { value: "", error: "" },
         "speak": { value: "", error: "" },
@@ -132,7 +154,7 @@ function App() {
     ]
   }
   const [formData, setFormData] = useState(initFormData);
-  const handleChange = (e, firstKey, secondKey, thirdKey) => {
+  const handleChange = (e, firstKey, secondKey, thirdKey, fourthKey) => {
     if (e.persist)
       e.persist();
 
@@ -150,6 +172,9 @@ function App() {
 
       if (thirdKey) {
         updateData = updateData[thirdKey]
+      }
+      if (fourthKey) {
+        updateData = updateData[fourthKey]
       }
       console.log(updateData)
       updateData.value = value;
