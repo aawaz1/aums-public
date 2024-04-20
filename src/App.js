@@ -15,7 +15,7 @@ import { Box, Button } from '@mui/material';
 function App() {
 
   const steps = ["PERSONAL", "FAMILY", "HEALTH", "ACADEMIC", "EMERGENCY", "DOCUMENT"];
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(0);
 
   const initFormData = {
     firstName: { value: "", error: "" },
@@ -38,12 +38,24 @@ function App() {
     "passport": { value: null, error: "" },
     "residency": { value: "", error: "" },
     "securityCard": { value: null, error: "" },
-    "isHealthRecord": { value: false, error: "" },
+    "isHealthRecord": { value: null, error: "" },
     "healthNote": { value: "", error: "" },
     "isSuspended": { value: null, error: "" },
     "suspensionNote": { value: "", error: "" },
     "sponsorship": {
       "parents": { value: false, error: "" },
+    },
+    isDeclared : { value: false, error: "" },
+    document : {
+      photograph : {value : null , error : ""},
+      transcript : {value : null , error : ""},
+      toefl: {value : null , error : ""},
+      highschool : {value : null , error : ""},
+      civilid : {value : null , error : ""},
+      passport : {value : null , error : ""},
+      record : {value : null , error : ""},
+      goodconduct : {value : null , error : ""}
+
     },
     "archivements": { value: [{ value: "", error: "" }] },
     "address": {
@@ -81,15 +93,15 @@ function App() {
     "emergency": [
       {
         "name": { value: "", error: "" },
-        "contact": "87654234567",
+        "contact": { value: "", error: "" ,  phoneCode: { value: "" } },
         "relationship": { value: "", error: "" },
-        "civilId": "123456788765"
+        "civilId": { value: "", error: "" },
       },
       {
         "name": { value: "", error: "" },
-        "contact": "775544245",
+        "contact":{ value: "", error: "" , phoneCode: { value: "" } },
         "relationship": { value: "", error: "" },
-        "civilId": "876542345672"
+        "civilId": { value: "", error: "" },
       }
     ],
     // "education": [
@@ -154,7 +166,7 @@ function App() {
     ]
   }
   const [formData, setFormData] = useState(initFormData);
-  const handleChange = (e, firstKey, secondKey, thirdKey, fourthKey) => {
+  const handleChange = (e, firstKey, secondKey, thirdKey , forthKey) => {
     if (e.persist)
       e.persist();
 
@@ -173,8 +185,8 @@ function App() {
       if (thirdKey) {
         updateData = updateData[thirdKey]
       }
-      if (fourthKey) {
-        updateData = updateData[fourthKey]
+      if (forthKey) {
+        updateData = updateData[forthKey]
       }
       console.log(updateData)
       updateData.value = value;

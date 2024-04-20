@@ -1,5 +1,5 @@
 import { Box, Checkbox, FormControlLabel, styled } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import './AdmissionForm.css';
 
 import { Grid } from '@mui/material';
@@ -23,9 +23,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import 'react-phone-input-2/lib/style.css';
+import './phoneInput.css'
+import PhoneInput from 'react-phone-input-2';
 
-
-const Form = () => {
+const Form = ({ formData, handleChange }) => {
+   
     const CustomCheckboxYes = styled(Checkbox)(({ theme }) => ({
         color: '#B70042', // Set the color of the checkbox itself
         '&.Mui-checked': {
@@ -58,12 +61,31 @@ const Form = () => {
 
                     <Grid container spacing={1}>
                         <Grid item container spacing={1}>
-                            {Data.Details.map(item => {
-                                return (<Grid xs={12} md={item.screen} item>
-                                    <Input label={item.label} />
+                            <Grid xs={12} md={6} item>
+                                <Input label={"Name"} value={formData.emergency[0].name.value} handleChange={(e) => handleChange(e, "emergency", "0", "name")} />
 
-                                </Grid>)
-                            })}
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input label={"Name"} value={formData.emergency[1].name.value} handleChange={(e) => handleChange(e, "emergency", "1", "name")} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input label={"Relationship"} value={formData.emergency[0].relationship.value} handleChange={(e) => handleChange(e, "emergency", "0", "relationship")} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input label={"Relationship"} value={formData.emergency[1].relationship.value} handleChange={(e) => handleChange(e, "emergency", "1", "relationship")} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input label={"Civil ID Number"} value={formData.emergency[0].civilId.value} handleChange={(e) => handleChange(e, "emergency", "0", "civilId")} />
+
+                            </Grid>
+                            <Grid xs={12} md={6} item>
+                                <Input label={"Civil ID Number"} value={formData.emergency[1].civilId.value} handleChange={(e) => handleChange(e, "emergency", "1", "civilId")} />
+
+                            </Grid>
+
 
 
 
@@ -72,29 +94,21 @@ const Form = () => {
                             <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
                                 <label className='label'>Phone Number</label>
 
-                                <TextField
-                                    size={"small"}
-                                    color='primary'
-                                    // id="outlined-start-adornment"
-                                    // sx={{ m: 1, width: '100%' }}
-                                    sx={{
-                                        width: "100%",
-                                        borderColor: "lightgray",
-                                        '& .MuiOutlinedInput-root': {
-                                            '& fieldset': {
-                                                borderColor: 'none',
-                                                borderRadius: "12px"// Specify your desired border color here
-                                            },
-                                            //   '&:hover fieldset': {
-                                            //     borderColor: 'green', // Specify your desired hover border color here
-                                            //   },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'black', // Specify your desired focused border color here
-                                            },
-                                        },
+
+                                <PhoneInput
+                                    inputStyle={{
+                                        width: '100%',
+                                        border: '1px solid lightgray',
+                                        borderRadius: '12px',
+                                        /* Add any additional styles you need */
                                     }}
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">+965</InputAdornment>,
+                                    country={'kw'}
+                                    value={formData.emergency[0].contact.value}
+                                    // onlyCountries={['in', 'de', 'ru']}
+                                    onChange={(value, countryData) => {
+                                        const countryCodeNumber = countryData?.dialCode;
+                                        handleChange({ target: { value } }, "emergency", "0", "contact");
+                                        handleChange({ target: { value: countryCodeNumber } }, "emergency", "0", "contact", "phoneCode")
                                     }}
                                 />
                             </div>
@@ -109,29 +123,21 @@ const Form = () => {
                             <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
                                 <label className='label'>Phone Number</label>
 
-                                <TextField
-                                    size={"small"}
-                                    color='primary'
-                                    // id="outlined-start-adornment"
-                                    // sx={{ m: 1, width: '100%' }}
-                                    sx={{
-                                        width: "100%",
-                                        borderColor: "lightgray",
-                                        '& .MuiOutlinedInput-root': {
-                                            '& fieldset': {
-                                                borderColor: 'none',
-                                                borderRadius: "12px"// Specify your desired border color here
-                                            },
-                                            //   '&:hover fieldset': {
-                                            //     borderColor: 'green', // Specify your desired hover border color here
-                                            //   },
-                                            '&.Mui-focused fieldset': {
-                                                borderColor: 'black', // Specify your desired focused border color here
-                                            },
-                                        },
+
+                                <PhoneInput
+                                    inputStyle={{
+                                        width: '100%',
+                                        border: '1px solid lightgray',
+                                        borderRadius: '12px',
+                                        /* Add any additional styles you need */
                                     }}
-                                    InputProps={{
-                                        startAdornment: <InputAdornment position="start">+965</InputAdornment>,
+                                    country={'kw'}
+                                    value={formData.emergency[1].contact.value}
+                                    // onlyCountries={['in', 'de', 'ru']}
+                                    onChange={(value, countryData) => {
+                                        const countryCodeNumber = countryData?.dialCode;
+                                        handleChange({ target: { value } }, "emergency", "1", "contact");
+                                        handleChange({ target: { value: countryCodeNumber } }, "emergency", "1", "contact", "phoneCode")
                                     }}
                                 />
                             </div>
@@ -156,9 +162,11 @@ const Form = () => {
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <TableCell> Parents </TableCell>
+                                    <TableCell sx={{ fontWeight: 700 }}> Parents </TableCell>
                                     <TableCell align="right"> </TableCell>
-                                    <TableCell align="right"></TableCell>
+                                    <TableCell align="right">
+                                        <Input/>
+                                    </TableCell>
 
 
                                 </TableRow>
@@ -187,7 +195,10 @@ const Form = () => {
                     <Box ><h4>Declaration & Acknowledgment </h4></Box>
                     <Box sx={{ display: 'flex' }}>
                         <div style={{ border: "2px solid redx" }}><FormControlLabel
-                            control={< CustomCheckboxYes Checkbox />}
+                            control={< CustomCheckboxYes Checkbox  checked={formData.isDeclared.value === true} onChange={(e) => {
+                                handleChange({ target: { value: e.target.checked } }, "isDeclared")
+    
+                            }}/>}
 
                         /></div>
                         <div>I The Undersigned hereby certify that the above Information is complete , accurate and correct . I authorize AUMS and related officials to verify alL statements contains therein and give the University the absolute discreation to use these documents whenever and whatever it seems fit in the connection with the tasks

@@ -3,13 +3,11 @@ import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 
-const AdmissionForm3 = () => {
-    const [check, setChecked] = useState(false);
+const AdmissionForm3 = ({ formData, handleChange }) => {
 
 
-    const handleChange = (event) => {
-        setChecked(!check);
-    };
+
+
 
     const CustomCheckboxYes = styled(Checkbox)(({ theme }) => ({
         color: '#B70042', // Set the color of the checkbox itself
@@ -28,7 +26,7 @@ const AdmissionForm3 = () => {
     }));
     return (
         <Box>
-            <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042' , padding :"0.2rem" }}>
+            <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042', padding: "0.2rem" }}>
                 <h4 className='form'>Health Information</h4>
             </Box>
             <Box sx={{
@@ -39,12 +37,18 @@ const AdmissionForm3 = () => {
                 </p>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                     <FormControlLabel
-                        control={< CustomCheckboxYes Checkbox checked={check} onChange={handleChange} />}
+                        control={< CustomCheckboxYes Checkbox checked={formData.isHealthRecord.value === true} onChange={(e) => {
+                            handleChange({ target: { value: e.target.checked === false ? null : true } }, "isHealthRecord")
+
+                        }} />}
                         label="Yes"
                     />
                     <FormControlLabel
 
-                        control={< CustomCheckboxNo Checkbox checked={!check} onChange={handleChange} />}
+                        control={< CustomCheckboxNo Checkbox checked={formData.isHealthRecord.value === false} onChange={(e) => {
+                            handleChange({ target: { value: e.target.checked === false ? null : false } }, "isHealthRecord")
+
+                        }} />}
                         label="No"
                     />
                 </Box>
@@ -55,6 +59,8 @@ const AdmissionForm3 = () => {
                     <h4 style={{ color: "Darkgray", fontSize: "1rem" }} className='form'>If Yes Please Indicate Details</h4>
                     <TextField
                         size={"small"}
+                        value={formData.healthNote.value}
+                        onChange={(e) => handleChange(e, "healthNote")}
                         color='primary'
                         // id="outlined-start-adornment"
                         // sx={{ m: 1, width: '100%' }}
