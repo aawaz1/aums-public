@@ -28,7 +28,7 @@ const AdmissionForm3 = () => {
     }));
     return (
         <Box>
-            <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042' }}>
+            <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042' , padding :"0.2rem" }}>
                 <h4 className='form'>Health Information</h4>
             </Box>
             <Box sx={{

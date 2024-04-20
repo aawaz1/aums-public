@@ -68,38 +68,38 @@ export const Data = {
 
     },
     {
-        id: 2,
+        id: 5,
         screen: 4,
         label: "Area",
 
     },
     {
-        id: 3,
+        id: 6,
         screen: 4,
         label: "Jaddah (Optional)",
 
     },
     {
-        id: 4,
+        id: 7,
         screen: 4,
         label: "Country",
 
     },
     {
-        id: 5,
+        id: 8,
         screen: 4,
         label: "PO Box",
 
     },
 
     {
-        id: 6,
+        id: 9,
         screen: 4,
         label: "Zip Code",
 
     },
     {
-        id: 7,
+        id: 10,
         screen: 4,
         label: "Governate",
 

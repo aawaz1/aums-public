@@ -68,7 +68,7 @@ const AdmissionForm4 = ({ title }) => {
     return (
         <Box sx={{ gap: "10rem" }}>
             <Box sx={{ display: 'flex', justifyContent: "flex-start", backgroundColor: '#B70042' }}>
-                <h4 className='form'>Personal Information</h4>
+                <h4 className='form'>Academic Information</h4>
             </Box>
             <Box>
                 <CommonAccordion defaultExpanded={true} title={"School Details"}>
