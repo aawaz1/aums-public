@@ -49,28 +49,29 @@ const AdmissionForm4 = ({ formData, handleChange }) => {
         "major": { value: "", error: "" },
         "degree": { value: "", error: "" },
     }
+    const option = [{ value: "Excellent", label: "Excellent" }, { value: "Good", label: "Good" }, { value: "Bad", label: "Bad" }]
     const rows = [
-        createData('English', <Input isRequired={true} value={formData.languages[0].read.value} handleChange={e => {
+        createData('English', <Input select={true} option={option} isRequired={true} value={formData.languages[0].read.value} handleChange={e => {
             handleChange(e, "languages", "0", "read")
-        }} />, <Input isRequired={true} value={formData.languages[0].write.value} handleChange={e => {
+        }} />, <Input select={true} option={option} isRequired={true} value={formData.languages[0].write.value} handleChange={e => {
             handleChange(e, "languages", "0", "write")
-        }} />, <Input isRequired={true} value={formData.languages[0].speak.value} handleChange={e => {
+        }} />, <Input select={true} option={option} isRequired={true} value={formData.languages[0].speak.value} handleChange={e => {
             handleChange(e, "languages", "0", "speak")
         }} />),
-        createData('Arabic', <Input isRequired={true} value={formData.languages[1].read.value} handleChange={e => {
+        createData('Arabic', <Input select={true} option={option} isRequired={true} value={formData.languages[1].read.value} handleChange={e => {
             handleChange(e, "languages", "1", "read")
-        }} />, <Input isRequired={true} value={formData.languages[1].write.value} handleChange={e => {
+        }} />, <Input select={true} option={option} isRequired={true} value={formData.languages[1].write.value} handleChange={e => {
             handleChange(e, "languages", "1", "write")
-        }} />, <Input isRequired={true} value={formData.languages[1].speak.value} handleChange={e => {
+        }} />, <Input select={true} option={option} isRequired={true} value={formData.languages[1].speak.value} handleChange={e => {
             handleChange(e, "languages", "1", "speak")
         }} />),
         createData(<div style={{ display: "flex", alignItems: "center", gap: 4 }}>Other :  <Input value={formData.languages[2].language.value} handleChange={e => {
             handleChange(e, "languages", "2", "language")
-        }} /></div>, <Input value={formData.languages[2].read.value} handleChange={e => {
+        }} /></div>, <Input select={true} option={option} value={formData.languages[2].read.value} handleChange={e => {
             handleChange(e, "languages", "2", "read")
-        }} />, <Input value={formData.languages[2].write.value} handleChange={e => {
+        }} />, <Input select={true} option={option} value={formData.languages[2].write.value} handleChange={e => {
             handleChange(e, "languages", "2", "write")
-        }} />, <Input value={formData.languages[2].speak.value} handleChange={e => {
+        }} />, <Input select={true} option={option} value={formData.languages[2].speak.value} handleChange={e => {
             handleChange(e, "languages", "2", "speak")
         }} />),
 
@@ -122,7 +123,7 @@ const AdmissionForm4 = ({ formData, handleChange }) => {
 
                                         <TableCell align="right"><Input isRequired={true} value={row.name.value} handleChange={(e) => handleChange(e, "school", "value", `${index}`, "name")} /></TableCell>
                                         <TableCell align="right"><Input isRequired={true} value={row.gpa.value} handleChange={(e) => handleChange(e, "school", "value", `${index}`, "gpa")} /></TableCell>
-                                        <TableCell align="right"> <Input isRequired={true} value={row.date.value} handleChange={(e) => handleChange(e, "school", "value", `${index}`, "date")} /></TableCell>
+                                        <TableCell align="right"> <Input type={"date"} isRequired={true} value={row.date.value} handleChange={(e) => handleChange(e, "school", "value", `${index}`, "date")} /></TableCell>
                                         <TableCell align="right"><Input isRequired={true} value={row.degree.value} handleChange={(e) => handleChange(e, "school", "value", `${index}`, "degree")} /> </TableCell>
                                     </TableRow>
                                 ))}

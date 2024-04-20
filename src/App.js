@@ -15,7 +15,7 @@ import { Box, Button } from '@mui/material';
 function App() {
 
   const steps = ["PERSONAL", "FAMILY", "HEALTH", "ACADEMIC", "EMERGENCY", "DOCUMENT"];
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(3);
 
   const initFormData = {
     firstName: { value: "", error: "" },
