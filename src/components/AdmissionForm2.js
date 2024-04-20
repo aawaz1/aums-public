@@ -37,43 +37,38 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                 
                                     <Grid xs={12} md={4} item>
                                        
-                                         <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherName")} label={"Fathers Name"} />
+                                         <Input value={formData.family.fatherName.value} handleChange={(e) => handleChange(e, "family", "fatherName")} label={"Fathers Name"} />
                                        
 
                                     </Grid>
                                     <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherDob")} label={"DOB"} />
+                                       <Input value={formData.family.fatherDob.value} handleChange={(e) => handleChange(e, "family", "fatherDob")} label={"DOB"} />
                                      
 
                                   </Grid>
                                   <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherNationality")} label={"Nationality"} />
+                                       <Input value={formData.family.fatherNationality.value} handleChange={(e) => handleChange(e, "family", "fatherNationality")} label={"Nationality"} />
+                                     
+
+                                  </Grid>
+                                  
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.family.fatherCivilId.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
                                      
 
                                   </Grid>
                                   <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
+                                       <Input value={formData.family.fatherOccup.value} handleChange={(e) => handleChange(e, "family", "fatherOccup")} label={"Occupation"} />
                                      
 
                                   </Grid>
                                   <Grid xs={12} md={4} item>
                                        
-                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
-                                     
-
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherOccup")} label={"Occupation"} />
-                                     
-
-                                  </Grid>
-                                  <Grid xs={12} md={4} item>
-                                       
-                                       <Input value={formData.address.home.value} handleChange={(e) => handleChange(e, "family", "fatherEmployer")} label={"Occupation"} />
+                                       <Input value={formData.family.fatherEmployer.value} handleChange={(e) => handleChange(e, "family", "fatherEmployer")} label={"Employer"} />
                                      
 
                                   </Grid>
@@ -88,10 +83,17 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
 
                                     <PhoneInput
                                         
-                                        country={'ku'}
-                                        value={phone}
-                                        onChange={phone => setPhone(phone)}
+                                        country={'kw'}
+                                        value={formData.family.fatherMobile.value}
+                                        // onlyCountries={['in', 'de', 'ru']}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } },"family", "fatherMobile");
+                                            handleChange({ target: { value: countryCodeNumber } },"family", "fatherMobile", "phoneCode")
+                                        }}
                                     />
+                                      
+                                    
                                 </div>
                                 {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
                                 {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
@@ -107,9 +109,14 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                         <PhoneInput
                                             // style={{ width: '100%', border: '1px solid lightgray', borderRadius: "12px" }}
-                                            country={'ku'}
-                                            value={phone}
-                                            onChange={phone => setPhone(phone)}
+                                            country={'kw'}
+                                            value={formData.family.fatherWorkTel.value}
+                                            // onlyCountries={['in', 'de', 'ru']}
+                                            onChange={(value, countryData) => {
+                                                const countryCodeNumber = countryData?.dialCode;
+                                                handleChange({ target: { value } },"family", "fatherWorkTel");
+                                                handleChange({ target: { value: countryCodeNumber } },"family", "fatherWorkTel", "phoneCode")
+                                            }}
                                         />
 
 
@@ -129,8 +136,8 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                     <TextField
                                         size={"small"}
                                         color='primary'
-                                        // id="outlined-start-adornment"
-                                        // sx={{ m: 1, width: '100%' }}
+                                        value={formData.family.fatherEmail.value}
+                                         onChange={(e) => handleChange(e, "family", "fatherEmail")}
                                         sx={{
                                             width: "100%",
                                             borderColor: "lightgray",
@@ -199,58 +206,61 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
 
                     <Grid container spacing={1}>
                         <Grid item container spacing={1}>
-                            {FormData.Data2.map(item => {
-                                return (
+                          
+                                
                                     <Grid xs={12} md={4} item>
-                                        <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                            <label className='label'>{item.label}</label>
-
-                                            <TextField
-                                                size={"small"}
-                                                color='primary'
-                                                // id="outlined-start-adornment"
-                                                // sx={{ m: 1, width: '100%' }}
-                                                sx={{
-                                                    width: "100%",
-                                                    borderColor: "lightgray",
-                                                    '& .MuiOutlinedInput-root': {
-                                                        '& fieldset': {
-                                                            borderColor: 'none',
-                                                            borderRadius: "12px"// Specify your desired border color here
-                                                        },
-                                                        //   '&:hover fieldset': {
-                                                        //     borderColor: 'green', // Specify your desired hover border color here
-                                                        //   },
-                                                        '&.Mui-focused fieldset': {
-                                                            borderColor: 'black', // Specify your desired focused border color here
-                                                        },
-                                                    },
-                                                }}
-                                                InputProps={{
-                                                    startAdornment: <InputAdornment position="start"></InputAdornment>,
-                                                }}
-                                            />
-                                        </div>
-                                        {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
-                                        {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
-                                                   <label className='label'>{item.label}</label>
-                                                   <input style={{ backgroundColor: "lightgray", border: "none", borderRadius: '8px', height: "2rem" }} />
-                                               </div> */}
+                                    <Input value={formData.family.motherName.value} handleChange={(e) => handleChange(e, "family", "motherName")} label={"Mother Name"} />
+                                       
 
                                     </Grid>
 
-                                )
-                            })}
+                                
+                           
                             <Grid xs={12} md={4} item>
+                            <Input value={formData.family.motherDob.value} handleChange={(e) => handleChange(e, "family", "motherDob")} label={"DOB"} />
+                            
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+                            <Input value={formData.family.motherNationality.value} handleChange={(e) => handleChange(e, "family", "motherNationality")} label={"Nationality"} />
+                               
+
+                            </Grid>
+                            <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.family.motherCivilId.value} handleChange={(e) => handleChange(e, "family", "fatherCivilId")} label={"Civil Id Number"} />
+                                     
+
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.family.motherOccup.value} handleChange={(e) => handleChange(e, "family", "motherOccup")} label={"Occupation"} />
+                                     
+
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
+                                       
+                                       <Input value={formData.family.motherEmployer.value} handleChange={(e) => handleChange(e, "family", "motherEmployer")} label={"Employer"} />
+                                     
+
+                                  </Grid>
+                                  <Grid xs={12} md={4} item>
                                 <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
                                     <label className='label'>Phone Number</label>
 
                                     <PhoneInput
-                                        // style={{ width: '100%', border: '1px solid lightgray', borderRadius: "12px" }}
-                                        country={'ku'}
-                                        value={phone}
-                                        onChange={phone => setPhone(phone)}
+                                        
+                                        country={'kw'}
+                                        value={formData.family.motherMobile.value}
+                                        // onlyCountries={['in', 'de', 'ru']}
+                                        onChange={(value, countryData) => {
+                                            const countryCodeNumber = countryData?.dialCode;
+                                            handleChange({ target: { value } },"family", "motherMobile");
+                                            handleChange({ target: { value: countryCodeNumber } },"family", "motherMobile", "phoneCode")
+                                        }}
                                     />
+                                      
+                                    
                                 </div>
                                 {/* <Input endornment={<EmailOutlinedIcon/>} label={item.label} /> */}
                                 {/* <div style={{ display: "flex", justifyContent: "flex-start", flexDirection: "column" }}>
@@ -266,9 +276,14 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                         <PhoneInput
                                             // style={{ width: '100%', border: '1px solid lightgray', borderRadius: "12px" }}
-                                            country={'ku'}
-                                            value={phone}
-                                            onChange={phone => setPhone(phone)}
+                                            country={'kw'}
+                                            value={formData.family.motherWorkTel.value}
+                                            // onlyCountries={['in', 'de', 'ru']}
+                                            onChange={(value, countryData) => {
+                                                const countryCodeNumber = countryData?.dialCode;
+                                                handleChange({ target: { value } },"family", "motherWorkTel");
+                                                handleChange({ target: { value: countryCodeNumber } },"family", "motherWorkTel", "phoneCode")
+                                            }}
                                         />
 
 
@@ -288,8 +303,8 @@ const AdmissionForm2 = ({ formData , handleChange}) => {
                                     <TextField
                                         size={"small"}
                                         color='primary'
-                                        // id="outlined-start-adornment"
-                                        // sx={{ m: 1, width: '100%' }}
+                                        value={formData.family.motherEmail.value}
+                                         onChange={(e) => handleChange(e, "family", "motherEmail")}
                                         sx={{
                                             width: "100%",
                                             borderColor: "lightgray",
